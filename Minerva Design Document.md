@@ -45,7 +45,7 @@ Crystal Reports will be used to generate both activity reports and receipts for 
 
 ## **Access Levels**
 
-* User
+* **User**
   * Lowest-level access
   * May browse the library’s collection
   * Read-only access to each book’s information within the library
