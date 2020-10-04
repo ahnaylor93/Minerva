@@ -4,10 +4,10 @@
 * [Summary](Summary)
 * [Architecture/Design](Architecture/Design)
 * [Presentation Layer](Presentation-Layer)
-* [Business Layer](Business Layer)
-* [Tech Stack](Tech Stack)
+* [Business Layer](Business-Layer)
+* [Tech Stack](Tech-Stack)
 * [API](API)
-* [Access Levels](Access Levels)
+* [Access Levels](Access-Levels)
 
 ## **Summary**	
 
