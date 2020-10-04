@@ -1,5 +1,14 @@
 # 				Minerva Design Document
 
+## **Table of Contents**
+* [Summary](Summary)
+* [Architecture/Design](Architecture/Design)
+* [Presentation Layer](Presentation Layer)
+* [Business Layer](Business Layer)
+* [Tech Stack](Tech Stack)
+* [API](API)
+* [Access Levels](Access Levels)
+
 ## **Summary**	
 
 Minerva is an all-in-one library management system allowing for three levels of access: user, employee, and administrator. Users will be able to login to view the library’s catalogue as well as view their checked out books, when they’re due, and any charges they may owe to the library. With employee level access, Minerva will allow an employee to check out books for users and adopt or retire books from the library’s collection. Minerva will present to those with administrative access the ability to manage the library’s employees and adjust the access levels of other users. Minerva is aimed to be a powerful tool to professionally manage the world’s centers of knowledge.
@@ -12,7 +21,8 @@ Minerva will have just three separate concerns:
 * allowing employees to do the work of cleaning all information
 * allowing admin to manage employees and user’s permissions.
 
-## **Presentation Layer: (\**\*Mockups subject to change\**\*)**
+## **Presentation Layer**
+Note: Markups subject to change
 
 ![img](https://lh6.googleusercontent.com/US8bDDV5rT-U-FE-6a_AJNWKvoO7o7ZP3R5PtBZo2-KZkdVFRXJw_6BdAe1WAnQws2vzkrgyRVCarHQCAfZoGxqSL9ucs9CbSTCXQP54_fOsEIUOVFI8GbkHjGVWQPARR-pesvje)
 
