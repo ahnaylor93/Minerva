@@ -1,0 +1,11 @@
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\bin\Debug\Minerva.exe.config
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\bin\Debug\Minerva.exe
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\bin\Debug\Minerva.pdb
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.csprojAssemblyReference.cache
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.frmLogin.resources
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.Properties.Resources.resources
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.csproj.GenerateResource.cache
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.csproj.CoreCompileInputs.cache
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.exe
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.pdb
+C:\TSTC\Minerva\Minerva-provisional\Minerva\Minerva\obj\Debug\Minerva.frmSignup.resources
