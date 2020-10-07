@@ -1,0 +1,9 @@
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\Minerva.exe.config
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\Minerva.exe
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\Minerva.pdb
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.csprojAssemblyReference.cache
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.Properties.Resources.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.GenerateResource.cache
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.CoreCompileInputs.cache
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.exe
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.pdb
