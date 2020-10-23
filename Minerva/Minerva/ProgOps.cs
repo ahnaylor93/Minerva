@@ -12,48 +12,38 @@ namespace Minerva
     class ProgOps
     {
         /*
-        TODO: Map Back-End: General idea is to create a DataTable that handles all DB Updates.
-        
-        ISSUE: Endpoint has no data dump.
+        TODO: 
+            Map Back-End: Async API Queries and store data in Data Table; handles books
+            DB: Database will be used for CRUD on employee and user information; no book data
         */
 
-        public const string QUERY_STRING = @"http://openlibrary.org/search.json?q=";
+        private static SqlConnection _cntDatabase;
 
-        // image queries are "https://covers.openlibrary.org/b/isbn/{ book ISBN }-M.jpg" i.e. IMAGE_QUERY + ISBN + IMG_TAG
-
-        public const string IMAGE_QUERY = "https://covers.openlibrary.org/b/isbn/";
-        public const string IMG_TAG = "-M.jpg";
-
-        private static SqlConnection _cntDatabase = new SqlConnection(Settings.CONNECT_STRING);
-        private static SqlCommand _sqlResCommand;
-        private static SqlDataAdapter _daRes = new SqlDataAdapter();
-        private static DataTable _dtResTable = new DataTable();
-
-        public static DataTable DTResTable
+        private void ConnectDB()
         {
-            get { return _dtResTable; }
-            set { _dtResTable = value; }
-        }
+            _cntDatabase = new SqlConnection(Utils.CONNECT_STRING);
 
-        public static void OpenDB()
-        {
             try
             {
-                if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
+                _cntDatabase.Open();
+
+                while (true)
+                {
+
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Connection to db was open successfully",
-                        "Database Connection",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+
+                throw;
             }
         }
 
-        public void CloseDB()
+        private void QueryAPI()
         {
-            _cntDatabase.Close();
-            _cntDatabase.Dispose();
+            /*
+             TODO: Create data fetch 
+             */
         }
     }
 }
