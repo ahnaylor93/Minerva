@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Minerva
 {
@@ -22,59 +24,28 @@ namespace Minerva
         public const string IMAGE_QUERY = "https://covers.openlibrary.org/b/isbn/";
         public const string IMG_TAG = "-M.jpg";
 
-        //dummy data
-        public struct Credentials
+        // helper method to deserialize json data
+        public static void _deserializeJSON(String json)
         {
-            public string _username;
-            public String password;
-            public String email;
-            public String accessLevel;
+            try
+            {
+                var jsonObject = JsonConvert.DeserializeObject<dynamic>(json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }
         }
 
-        public struct Employee
+        // Creates random User Id
+        public static int _userIDGenerator()
         {
-            public int _employeeID;
-            public String firstName;
-            public String lastName;
-            public String address;
-            public String city;
-            public String state;
-            public int zip;
-            public String hireDate;
-            public String endDate;
-            public String position;
-            public String salary;
-        }
+            var random = new Random();
+            string id = String.Empty;
+            for (int i = 0; i < 15; i++)
+                id = String.Concat(id, random.Next(10).ToString());
 
-        public struct User
-        {
-            public int _userID;
-            public String firstName;
-            public String lastName;
-            public String address;
-            public String city;
-            public String state;
-            public int zip;
-            public String phone;
-            public String email;
-            //should be an array of books?
-            public String checkedOut;
-            //also an array?
-            public String overdue;
-            public float amountOwed;
-        }
-
-        public struct Books
-        {
-            public int _ISBN;
-            public String title;
-            public String author;
-            public String publisher;
-            public String pubDate;
-            public String Quantity;
-            // ??? based on quantity? How many or isCheckedIn/isCheckedOut
-            public int checkedIn;
-            public int checkedOut;
+            return Int32.Parse(id);
         }
     }
 }
