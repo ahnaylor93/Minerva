@@ -9,6 +9,7 @@ namespace Minerva.models
     public class Transaction
     {
         // Model Transaction Object
+        public int transaction_id { get; set; }
         public int user_id { get; set; }
         public String username { get; set; }
         public int ISBN { get; set; }

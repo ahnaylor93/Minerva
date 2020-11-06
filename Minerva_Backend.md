@@ -15,9 +15,11 @@ The database will contain 3 objects
 |    Attribute    |       Type        | Description                                                  |
 | :-------------: | :---------------: | ------------------------------------------------------------ |
 |      ISBN       | int (primary key) | Unique identifier for each book                              |
+|     AUTHOR      |      string       | Author of book                                               |
 |      TITLE      |      string       | Provides the name of the book.                               |
+|    SUBTITLE     |      string       | Subtitle if any (default null)                               |
 |  PUBLISH_DATE   |       date        | (JSON data may need conversion function) Contains the year of publication |
-|    LANGUAGE     |      string       | Contains the language in which this book was published. (obj. may contain multiple) |
+|    IMAGE_URL    |      string       | Stores URL of the book cover needs to be rendered.           |
 | ACTUAL_QUANTITY |        int        | Default to 5. This column contains the total no. of copies of each book that were initially present. |
 |   CHECKED_IN    |        int        | Current books in stock                                       |
 |   CHECKED_OUT   |        int        | Current books checked out                                    |
@@ -35,57 +37,97 @@ The database will contain 3 objects
 
 ### Transaction_Details
 
-| Attribute |       Type        | Description                                         |
-| :-------: | :---------------: | --------------------------------------------------- |
-|  USER_ID  | int (foreign key) | Unique ID given to each User                        |
-| USERNAME  |      string       | First name for each user                            |
-|   ISBN    | int (foreign key) | Book ID                                             |
-| QUANTITY  |        int        | Count of books checked out                          |
-| ISSUED_BY |        int        | User ID of employee who facilitated the transaction |
+|   Attribute    |       Type        | Description                                                  |
+| :------------: | :---------------: | ------------------------------------------------------------ |
+| TRANSACTION_ID |        int        | Transaction number. Generated and stored for each individual transaction |
+|    USER_ID     | int (foreign key) | Unique ID given to each User; Possible search query to find all transactions by user |
+|    USERNAME    |      string       | First name for each user                                     |
+|      ISBN      | int (foreign key) | Book ID                                                      |
+|    QUANTITY    |        int        | Count of books checked out                                   |
+|   ISSUED_BY    |        int        | User ID of employee who facilitated the transaction; Possible search query to find all transactions by issuer |
 
 ### DB Methods
 
-1. ```_getBook(string searchQuery)``` Method
+1. ```void _getAllBooks()``` Method
+
+   <em>Description:</em> Queries DB for all books and book data stored
+
+   <em>Return Value:</em> Either null if no books or creates loaded ```DataTable``` with all current books
+
+   
+
+2. ```void _getAllUsers()``` Method
+
+   <em>Description:</em> Queries DB for all user information
+
+   <em>Return Value:</em> Either null if no users or creates loaded ```DataTable``` with all current users
+
+   
+
+3. ```void _getAllTransactions()``` Method
+
+   <em>Description:</em> Queries DB for all transactions
+
+   <em>Return Value:</em> Either null if none or creates loaded ```DataTable``` with all current transactions
+
+   
+
+4. ```Book _getBook(string searchQuery)``` Method
 
    <em>Description:</em> API cannot do bulk data. Searching the API asynchronously can mimic a full library and we can create/remove an item on adding to cart (```_saveBook(Book bookObj)```)/purchase 
 
-   <em>Return Value:</em> A large object with requested book data for display. User can select preferred book and it can be added to temporary ```DataTable``` and pushed to DB for purchases. 
+   <em>Return Value:</em> A Book object with requested book data for display. User can select preferred book and it can be added to temporary ```DataTable``` and pushed to DB for checkout. 
 
    <em>Parameters</em>: Will need a search query as defined in ```utils.cs``` 
 
    
 
-2. ```_getUser(string searchQuery)``` Method:
-   <em>Description:</em> Searches through users table by whatever query.
+5. ```Book _getBookFromTable(string searchQuery)``` Method:
+   <em>Description:</em> Searches through Book ```DataTable``` by whatever query.
 
-   <em>Return Value:</em> An object with requested user's info
+   <em>Return Value:</em> An object with requested Book info
 
-   <em>Parameters</em>: Can be filtered through ```DataTable```
+   <em>Parameters</em>: Will need a search query as defined in ```utils.cs``` 
 
    
 
-3. ```_saveBook(Book bookObj)``` Method:
+6. ```User _getUserFromTable(string searchQuery)``` Method:
+   <em>Description:</em> Searches through User ```DataTable``` by whatever query.
+
+   <em>Return Value:</em> An object with requested User's info
+
+   <em>Parameters</em>: Will need a search query as defined in ```utils.cs```
+
+   
+
+7. ```Array _getTransactionFromTable(string id)``` Method:
+   <em>Description:</em> Searches through users table by whatever query.
+
+   <em>Return Value:</em> An ```ArrayList``` with all matching transaction by id
+
+   <em>Parameters</em>: Will need a search query as defined in ```utils.cs```
+
+   
+
+8. ```User _filterUserFromTable(string designation)``` Method:
+   <em>Description:</em> filters saved users and updates ```User DataGridView```; Admin only query
+
+   <em>Parameters</em>: Search by requested designation; employee, patron, admin.
+
+   
+
+9. ```void _saveBook(Book bookObj)``` Method:
 
    <em>Description:</em> Pushes book info to table to later be filtered by users for transactions; helps crystal reports
 
    
 
-4. ```_saveUser(User userObj)``` Method:
+10. ```_saveUser(User userObj)``` Method:
 
    <em>Description:</em> Pushes user info to table to later be filtered by employees and admin; Admin may modify/update any info
 
    
 
-5.  ```_getTransactionsByUserID(int userID)``` Method:
+11. ```_saveTransaction(Transaction userObj)``` Method:
 
-   <em>Description:</em> Pulls all transactions by ```USER_ID``` to create receipt or search user history
-
-    <em>Parameters</em>: Will need a SQL query to filter 
-
-   
-
-6. ```_getTransactionsByIssuer(int userID)``` Method:
-
-   <em>Description:</em> Admin function that pulls the employee transactions
-
-   <em>Parameters</em>: Will need a SQL query to filter 
+    <em>Description:</em> Pushes transaction info for each to table to later be filtered by employees and admin

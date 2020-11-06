@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Minerva
 {
@@ -15,16 +14,27 @@ namespace Minerva
             DotNetEnv.Env.Load();
         }
 
+        #region API Query Variables
+        /*
+         Query string only needs QUERY_STRING + {searchQuery}
+
+         API image queries are "https://covers.openlibrary.org/b/isbn/{ book ISBN }-M.jpg" i.e. IMAGE_QUERY + ISBN + IMG_TAG
+        */
+
+        // Connects to DB
         public static string CONNECT_STRING => DotNetEnv.Env.GetString("CONNECT_STRING");
 
-        // Query string... queries the API and returns JSON data
         public const string QUERY_STRING = @"http://openlibrary.org/search.json?q=";
 
-        // API image queries are "https://covers.openlibrary.org/b/isbn/{ book ISBN }-M.jpg" i.e. IMAGE_QUERY + ISBN + IMG_TAG
         public const string IMAGE_QUERY = "https://covers.openlibrary.org/b/isbn/";
         public const string IMG_TAG = "-M.jpg";
 
-        // helper method to deserialize json data
+        #endregion
+
+
+        #region Helper Methods
+
+        // Helper method to deserialize json data
         public static void _deserializeJSON(String json)
         {
             try
@@ -37,8 +47,8 @@ namespace Minerva
             }
         }
 
-        // Creates random User Id
-        public static int _userIDGenerator()
+        // Creates random Id for use with transaction_id and user_id
+        public static int _IDGenerator()
         {
             var random = new Random();
             string id = String.Empty;
@@ -47,5 +57,7 @@ namespace Minerva
 
             return Int32.Parse(id);
         }
+
+        #endregion
     }
 }
