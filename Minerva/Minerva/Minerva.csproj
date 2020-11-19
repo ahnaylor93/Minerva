@@ -162,5 +162,8 @@
     <Content Include=".gitignore" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="*.env" CopyToOutputDirectory="Always" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

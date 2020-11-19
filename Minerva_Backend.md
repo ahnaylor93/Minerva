@@ -1,5 +1,7 @@
 <h1 align="center">Minerva Backend</h1>
 
+***!important: Double ```.env``` file. DO NOT DELETE*** 
+
 ## Data
 
 The database will contain 3 objects

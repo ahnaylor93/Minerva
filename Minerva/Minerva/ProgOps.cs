@@ -17,6 +17,7 @@ namespace Minerva
             DB: Database will be used for CRUD on employee and user information; no book data
         */
 
+
         private static SqlConnection _cntDatabase;
 
         #region Initialized DataTables, DataGridViews, and TransactionList
@@ -42,23 +43,20 @@ namespace Minerva
 
         #endregion
 
-        private void ConnectDB()
+        public static void ConnectDB()
         {
             _cntDatabase = new SqlConnection(Utils.CONNECT_STRING);
-
+            String _connect = DotNetEnv.Env.GetString("CONNECT_STRING");
             try
             {
                 _cntDatabase.Open();
+                MessageBox.Show("Connection Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                while (true)
-                {
-
-                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(_connect);
             }
         }
 

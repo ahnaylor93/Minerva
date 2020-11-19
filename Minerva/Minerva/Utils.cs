@@ -22,12 +22,12 @@ namespace Minerva
         */
 
         // Connects to DB
-        public static string CONNECT_STRING => DotNetEnv.Env.GetString("CONNECT_STRING");
+        public static String CONNECT_STRING => DotNetEnv.Env.GetString("CONNECT_STRING");
 
-        public const string QUERY_STRING = @"http://openlibrary.org/search.json?q=";
+        public const String QUERY_STRING = @"http://openlibrary.org/search.json?q=";
 
-        public const string IMAGE_QUERY = "https://covers.openlibrary.org/b/isbn/";
-        public const string IMG_TAG = "-M.jpg";
+        public const String IMAGE_QUERY = "https://covers.openlibrary.org/b/isbn/";
+        public const String IMG_TAG = "-M.jpg";
 
         #endregion
 
@@ -51,7 +51,7 @@ namespace Minerva
         public static int _IDGenerator()
         {
             var random = new Random();
-            string id = String.Empty;
+            String id = String.Empty;
             for (int i = 0; i < 15; i++)
                 id = String.Concat(id, random.Next(10).ToString());
 
