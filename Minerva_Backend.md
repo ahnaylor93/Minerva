@@ -50,7 +50,7 @@ The database will contain 3 objects
 
 ### DB Methods
 
-1. ```void _getAllBooks()``` Method
+1. ```DataTable _getAllBooks()``` Method
 
    <em>Description:</em> Queries DB for all books and book data stored
 
@@ -58,7 +58,7 @@ The database will contain 3 objects
 
    
 
-2. ```void _getAllUsers()``` Method
+2. ```DataTable _getAllUsers()``` Method
 
    <em>Description:</em> Queries DB for all user information
 
@@ -66,7 +66,7 @@ The database will contain 3 objects
 
    
 
-3. ```void _getAllTransactions()``` Method
+3. ```DataTable _getAllTransactions()``` Method
 
    <em>Description:</em> Queries DB for all transactions
 
