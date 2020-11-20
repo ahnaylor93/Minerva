@@ -22,6 +22,7 @@ namespace Minerva
         */
 
         // Connects to DB
+        public static String DB_QUERY => DotNetEnv.Env.GetString("DB_QUERY");
         public static String CONNECT_STRING => DotNetEnv.Env.GetString("CONNECT_STRING");
 
         public const String QUERY_STRING = @"http://openlibrary.org/search.json?q=";

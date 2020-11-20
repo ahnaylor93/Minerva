@@ -17,31 +17,29 @@ namespace Minerva
             DB: Database will be used for CRUD on employee and user information; no book data
         */
 
-
-        private static SqlConnection _cntDatabase;
-
-        #region Initialized DataTables, DataGridViews, and TransactionList
+        #region Initialize
         // DataGridViews to view and filter Users and Transactions
         // TransactionList for Receipts and Admin filtering
 
-        public static DataTable UserTable;
-        public static DataTable BookTable;
-        public static DataTable TransactionTable;
+        private static SqlConnection _cntDatabase;
+
+        public static DataTable UserTable = new DataTable();
+        public static DataTable BookTable = new DataTable();
+        public static DataTable TransactionTable = new DataTable();
         public static DataGridView UserView;
         public static DataGridView TransactionView;
         public static ArrayList TransactionListByQuery;
         public static ArrayList UserListByQuery;
 
-        #endregion
-
-
-        #region Initialized Model Objects
-
+        // Model Objects
         public static models.Book BookObject;
         public static models.Transaction TransactionObject;
         public static models.User UserObject;
 
         #endregion
+
+
+        #region Comunication methods
 
         public static void ConnectDB()
         {
@@ -49,7 +47,7 @@ namespace Minerva
             String _connect = DotNetEnv.Env.GetString("CONNECT_STRING");
             try
             {
-                _cntDatabase.Open();
+                if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
                 MessageBox.Show("Connection Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
@@ -60,6 +58,12 @@ namespace Minerva
             }
         }
 
+        public void CloseDB()
+        {
+            _cntDatabase.Close();
+            _cntDatabase.Dispose();
+        }
+
         private void _queryAPI()
         {
             /*
@@ -67,10 +71,34 @@ namespace Minerva
              */
         }
 
+        #endregion
+
+
         #region Load Methods
+
+        public static String query;
         //Loads DataTables with initial and set data
 
-        public static void _getAllBooks() { }
+        public static DataTable _getAllBooks()
+        {
+            // Used to store book information temporarily until a save is necessarily. To be cleared be wiped on each save
+            query = Utils.DB_QUERY + "BOOK_DETAILS";
+
+            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+            using (SqlCommand cmd = new SqlCommand(query, _cntDatabase))
+            {
+                try
+                {
+                    if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
+                    BookTable.Load(cmd.ExecuteReader());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), query);
+                }
+                return BookTable;
+            }
+        }
         public static void _getAllUsers() { /* Should also set UserView */ }
         public static void _getAllTransactions() { /* Should also set TransactionView */ }
 

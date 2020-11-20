@@ -15,6 +15,8 @@ namespace Minerva
         public frmMain()
         {
             InitializeComponent();
+            ProgOps.ConnectDB();
+            ProgOps._getAllBooks();
         }
     }
 }
