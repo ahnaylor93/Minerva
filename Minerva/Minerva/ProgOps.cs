@@ -18,7 +18,6 @@ namespace Minerva
         */
 
         #region Initialize
-        // DataGridViews to view and filter Users and Transactions
         // TransactionList for Receipts and Admin filtering
 
         private static SqlConnection _cntDatabase;
@@ -26,8 +25,6 @@ namespace Minerva
         public static DataTable UserTable = new DataTable();
         public static DataTable BookTable = new DataTable();
         public static DataTable TransactionTable = new DataTable();
-        public static DataGridView UserView;
-        public static DataGridView TransactionView;
         public static ArrayList TransactionListByQuery;
         public static ArrayList UserListByQuery;
 
@@ -77,8 +74,8 @@ namespace Minerva
         #region Load Methods
 
         public static String query;
-        //Loads DataTables with initial and set data
 
+        //Loads DataTables with initial and set data
         public static DataTable _getAllBooks()
         {
             // Used to store book information temporarily until a save is necessarily. To be cleared be wiped on each save
@@ -94,13 +91,54 @@ namespace Minerva
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), query);
+                    MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return BookTable;
             }
         }
-        public static void _getAllUsers() { /* Should also set UserView */ }
-        public static void _getAllTransactions() { /* Should also set TransactionView */ }
+
+        public static DataTable _getAllUsers()
+        {
+            // UsersForm will require => DataGridView UserView
+            query = Utils.DB_QUERY + "USER_DETAILS";
+
+            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+            using (SqlCommand cmd = new SqlCommand(query, _cntDatabase))
+            {
+                try
+                {
+                    if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
+                    UserTable.Load(cmd.ExecuteReader());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                return UserTable;
+            }
+        }
+        public static DataTable _getAllTransactions()
+        {
+            // TransactionsForm will require => DataGridView TransactionView
+            query = Utils.DB_QUERY + "TRANSACTION_DETAILS";
+
+            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+            using (SqlCommand cmd = new SqlCommand(query, _cntDatabase))
+            {
+                try
+                {
+                    if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
+                    UserTable.Load(cmd.ExecuteReader());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                return TransactionTable;
+            }
+        }
 
         #endregion
 
