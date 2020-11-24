@@ -201,7 +201,7 @@ namespace Minerva
         {
 
             UserListByQuery = new ArrayList();
-            UserView = new DataGridView();
+            //UserView = new DataGridView();
 
             /*
              Admin Query
