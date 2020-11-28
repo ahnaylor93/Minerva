@@ -32,8 +32,6 @@ namespace Minerva {
         
         private global::System.Data.DataRelation relationFK__TRANSACTI__USER___4959E263;
         
-        private global::System.Data.DataRelation relationFK__TRANSACTIO__ISBN__4A4E069C;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -247,7 +245,6 @@ namespace Minerva {
                 }
             }
             this.relationFK__TRANSACTI__USER___4959E263 = this.Relations["FK__TRANSACTI__USER___4959E263"];
-            this.relationFK__TRANSACTIO__ISBN__4A4E069C = this.Relations["FK__TRANSACTIO__ISBN__4A4E069C"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -268,10 +265,6 @@ namespace Minerva {
                         this.tableUSER_DETAILS.USER_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTRANSACTION_DETAILS.USER_IDColumn}, false);
             this.Relations.Add(this.relationFK__TRANSACTI__USER___4959E263);
-            this.relationFK__TRANSACTIO__ISBN__4A4E069C = new global::System.Data.DataRelation("FK__TRANSACTIO__ISBN__4A4E069C", new global::System.Data.DataColumn[] {
-                        this.tableBOOK_DETAILS.ISBNColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTRANSACTION_DETAILS.ISBNColumn}, false);
-            this.Relations.Add(this.relationFK__TRANSACTIO__ISBN__4A4E069C);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -375,6 +368,12 @@ namespace Minerva {
             
             private global::System.Data.DataColumn columnCHECKED_OUT;
             
+            private global::System.Data.DataColumn columnIMAGE_URL;
+            
+            private global::System.Data.DataColumn columnAUTHOR;
+            
+            private global::System.Data.DataColumn columnSUBTITLE;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public BOOK_DETAILSDataTable() {
@@ -458,6 +457,30 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IMAGE_URLColumn {
+                get {
+                    return this.columnIMAGE_URL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AUTHORColumn {
+                get {
+                    return this.columnAUTHOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SUBTITLEColumn {
+                get {
+                    return this.columnSUBTITLE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -493,7 +516,7 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BOOK_DETAILSRow AddBOOK_DETAILSRow(int ISBN, string TITLE, System.DateTime PUBLISH_DATE, int ACTUAL_QUANTITY, int CHECKED_IN, int CHECKED_OUT) {
+            public BOOK_DETAILSRow AddBOOK_DETAILSRow(int ISBN, string TITLE, System.DateTime PUBLISH_DATE, int ACTUAL_QUANTITY, int CHECKED_IN, int CHECKED_OUT, string IMAGE_URL, string AUTHOR, string SUBTITLE) {
                 BOOK_DETAILSRow rowBOOK_DETAILSRow = ((BOOK_DETAILSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ISBN,
@@ -501,7 +524,10 @@ namespace Minerva {
                         PUBLISH_DATE,
                         ACTUAL_QUANTITY,
                         CHECKED_IN,
-                        CHECKED_OUT};
+                        CHECKED_OUT,
+                        IMAGE_URL,
+                        AUTHOR,
+                        SUBTITLE};
                 rowBOOK_DETAILSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBOOK_DETAILSRow);
                 return rowBOOK_DETAILSRow;
@@ -537,6 +563,9 @@ namespace Minerva {
                 this.columnACTUAL_QUANTITY = base.Columns["ACTUAL_QUANTITY"];
                 this.columnCHECKED_IN = base.Columns["CHECKED_IN"];
                 this.columnCHECKED_OUT = base.Columns["CHECKED_OUT"];
+                this.columnIMAGE_URL = base.Columns["IMAGE_URL"];
+                this.columnAUTHOR = base.Columns["AUTHOR"];
+                this.columnSUBTITLE = base.Columns["SUBTITLE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -554,6 +583,12 @@ namespace Minerva {
                 base.Columns.Add(this.columnCHECKED_IN);
                 this.columnCHECKED_OUT = new global::System.Data.DataColumn("CHECKED_OUT", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCHECKED_OUT);
+                this.columnIMAGE_URL = new global::System.Data.DataColumn("IMAGE_URL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIMAGE_URL);
+                this.columnAUTHOR = new global::System.Data.DataColumn("AUTHOR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAUTHOR);
+                this.columnSUBTITLE = new global::System.Data.DataColumn("SUBTITLE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUBTITLE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnISBN}, true));
                 this.columnISBN.AllowDBNull = false;
@@ -562,6 +597,11 @@ namespace Minerva {
                 this.columnTITLE.MaxLength = 25;
                 this.columnPUBLISH_DATE.AllowDBNull = false;
                 this.columnCHECKED_OUT.AllowDBNull = false;
+                this.columnIMAGE_URL.AllowDBNull = false;
+                this.columnIMAGE_URL.MaxLength = 50;
+                this.columnAUTHOR.AllowDBNull = false;
+                this.columnAUTHOR.MaxLength = 50;
+                this.columnSUBTITLE.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -699,11 +739,13 @@ namespace Minerva {
             
             private global::System.Data.DataColumn columnUSERNAME;
             
-            private global::System.Data.DataColumn columnISBN;
-            
             private global::System.Data.DataColumn columnQUANTITY;
             
             private global::System.Data.DataColumn columnISSUED_BY;
+            
+            private global::System.Data.DataColumn columnTRANSACTION_ID;
+            
+            private global::System.Data.DataColumn columnTITLE;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -756,14 +798,6 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ISBNColumn {
-                get {
-                    return this.columnISBN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn QUANTITYColumn {
                 get {
                     return this.columnQUANTITY;
@@ -775,6 +809,22 @@ namespace Minerva {
             public global::System.Data.DataColumn ISSUED_BYColumn {
                 get {
                     return this.columnISSUED_BY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TRANSACTION_IDColumn {
+                get {
+                    return this.columnTRANSACTION_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TITLEColumn {
+                get {
+                    return this.columnTITLE;
                 }
             }
             
@@ -815,23 +865,28 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TRANSACTION_DETAILSRow AddTRANSACTION_DETAILSRow(USER_DETAILSRow parentUSER_DETAILSRowByFK__TRANSACTI__USER___4959E263, string USERNAME, BOOK_DETAILSRow parentBOOK_DETAILSRowByFK__TRANSACTIO__ISBN__4A4E069C, int QUANTITY, int ISSUED_BY) {
+            public TRANSACTION_DETAILSRow AddTRANSACTION_DETAILSRow(USER_DETAILSRow parentUSER_DETAILSRowByFK__TRANSACTI__USER___4959E263, string USERNAME, int QUANTITY, int ISSUED_BY, int TRANSACTION_ID, string TITLE) {
                 TRANSACTION_DETAILSRow rowTRANSACTION_DETAILSRow = ((TRANSACTION_DETAILSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         USERNAME,
-                        null,
                         QUANTITY,
-                        ISSUED_BY};
+                        ISSUED_BY,
+                        TRANSACTION_ID,
+                        TITLE};
                 if ((parentUSER_DETAILSRowByFK__TRANSACTI__USER___4959E263 != null)) {
                     columnValuesArray[0] = parentUSER_DETAILSRowByFK__TRANSACTI__USER___4959E263[0];
-                }
-                if ((parentBOOK_DETAILSRowByFK__TRANSACTIO__ISBN__4A4E069C != null)) {
-                    columnValuesArray[2] = parentBOOK_DETAILSRowByFK__TRANSACTIO__ISBN__4A4E069C[0];
                 }
                 rowTRANSACTION_DETAILSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTRANSACTION_DETAILSRow);
                 return rowTRANSACTION_DETAILSRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TRANSACTION_DETAILSRow FindByTRANSACTION_ID(int TRANSACTION_ID) {
+                return ((TRANSACTION_DETAILSRow)(this.Rows.Find(new object[] {
+                            TRANSACTION_ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -853,9 +908,10 @@ namespace Minerva {
             internal void InitVars() {
                 this.columnUSER_ID = base.Columns["USER_ID"];
                 this.columnUSERNAME = base.Columns["USERNAME"];
-                this.columnISBN = base.Columns["ISBN"];
                 this.columnQUANTITY = base.Columns["QUANTITY"];
                 this.columnISSUED_BY = base.Columns["ISSUED_BY"];
+                this.columnTRANSACTION_ID = base.Columns["TRANSACTION_ID"];
+                this.columnTITLE = base.Columns["TITLE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -865,16 +921,24 @@ namespace Minerva {
                 base.Columns.Add(this.columnUSER_ID);
                 this.columnUSERNAME = new global::System.Data.DataColumn("USERNAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUSERNAME);
-                this.columnISBN = new global::System.Data.DataColumn("ISBN", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnISBN);
                 this.columnQUANTITY = new global::System.Data.DataColumn("QUANTITY", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQUANTITY);
                 this.columnISSUED_BY = new global::System.Data.DataColumn("ISSUED_BY", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnISSUED_BY);
+                this.columnTRANSACTION_ID = new global::System.Data.DataColumn("TRANSACTION_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTRANSACTION_ID);
+                this.columnTITLE = new global::System.Data.DataColumn("TITLE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTITLE);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTRANSACTION_ID}, true));
                 this.columnUSERNAME.AllowDBNull = false;
                 this.columnUSERNAME.MaxLength = 25;
                 this.columnQUANTITY.AllowDBNull = false;
                 this.columnISSUED_BY.AllowDBNull = false;
+                this.columnTRANSACTION_ID.AllowDBNull = false;
+                this.columnTRANSACTION_ID.Unique = true;
+                this.columnTITLE.AllowDBNull = false;
+                this.columnTITLE.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1431,6 +1495,44 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string IMAGE_URL {
+                get {
+                    return ((string)(this[this.tableBOOK_DETAILS.IMAGE_URLColumn]));
+                }
+                set {
+                    this[this.tableBOOK_DETAILS.IMAGE_URLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string AUTHOR {
+                get {
+                    return ((string)(this[this.tableBOOK_DETAILS.AUTHORColumn]));
+                }
+                set {
+                    this[this.tableBOOK_DETAILS.AUTHORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string SUBTITLE {
+                get {
+                    try {
+                        return ((string)(this[this.tableBOOK_DETAILS.SUBTITLEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SUBTITLE\' in table \'BOOK_DETAILS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBOOK_DETAILS.SUBTITLEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsACTUAL_QUANTITYNull() {
                 return this.IsNull(this.tableBOOK_DETAILS.ACTUAL_QUANTITYColumn);
             }
@@ -1455,13 +1557,14 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TRANSACTION_DETAILSRow[] GetTRANSACTION_DETAILSRows() {
-                if ((this.Table.ChildRelations["FK__TRANSACTIO__ISBN__4A4E069C"] == null)) {
-                    return new TRANSACTION_DETAILSRow[0];
-                }
-                else {
-                    return ((TRANSACTION_DETAILSRow[])(base.GetChildRows(this.Table.ChildRelations["FK__TRANSACTIO__ISBN__4A4E069C"])));
-                }
+            public bool IsSUBTITLENull() {
+                return this.IsNull(this.tableBOOK_DETAILS.SUBTITLEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSUBTITLENull() {
+                this[this.tableBOOK_DETAILS.SUBTITLEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1508,22 +1611,6 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ISBN {
-                get {
-                    try {
-                        return ((int)(this[this.tableTRANSACTION_DETAILS.ISBNColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ISBN\' in table \'TRANSACTION_DETAILS\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTRANSACTION_DETAILS.ISBNColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int QUANTITY {
                 get {
                     return ((int)(this[this.tableTRANSACTION_DETAILS.QUANTITYColumn]));
@@ -1546,23 +1633,34 @@ namespace Minerva {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TRANSACTION_ID {
+                get {
+                    return ((int)(this[this.tableTRANSACTION_DETAILS.TRANSACTION_IDColumn]));
+                }
+                set {
+                    this[this.tableTRANSACTION_DETAILS.TRANSACTION_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string TITLE {
+                get {
+                    return ((string)(this[this.tableTRANSACTION_DETAILS.TITLEColumn]));
+                }
+                set {
+                    this[this.tableTRANSACTION_DETAILS.TITLEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public USER_DETAILSRow USER_DETAILSRow {
                 get {
                     return ((USER_DETAILSRow)(this.GetParentRow(this.Table.ParentRelations["FK__TRANSACTI__USER___4959E263"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__TRANSACTI__USER___4959E263"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BOOK_DETAILSRow BOOK_DETAILSRow {
-                get {
-                    return ((BOOK_DETAILSRow)(this.GetParentRow(this.Table.ParentRelations["FK__TRANSACTIO__ISBN__4A4E069C"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__TRANSACTIO__ISBN__4A4E069C"]);
                 }
             }
             
@@ -1576,18 +1674,6 @@ namespace Minerva {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUSER_IDNull() {
                 this[this.tableTRANSACTION_DETAILS.USER_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsISBNNull() {
-                return this.IsNull(this.tableTRANSACTION_DETAILS.ISBNColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetISBNNull() {
-                this[this.tableTRANSACTION_DETAILS.ISBNColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1916,10 +2002,13 @@ namespace Minerva.inew2330fa20DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ACTUAL_QUANTITY", "ACTUAL_QUANTITY");
             tableMapping.ColumnMappings.Add("CHECKED_IN", "CHECKED_IN");
             tableMapping.ColumnMappings.Add("CHECKED_OUT", "CHECKED_OUT");
+            tableMapping.ColumnMappings.Add("IMAGE_URL", "IMAGE_URL");
+            tableMapping.ColumnMappings.Add("AUTHOR", "AUTHOR");
+            tableMapping.ColumnMappings.Add("SUBTITLE", "SUBTITLE");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [group2bfa202330].[BOOK_DETAILS] WHERE (([ISBN] = @Original_ISBN) AND ([TITLE] = @Original_TITLE) AND ([PUBLISH_DATE] = @Original_PUBLISH_DATE) AND ((@IsNull_ACTUAL_QUANTITY = 1 AND [ACTUAL_QUANTITY] IS NULL) OR ([ACTUAL_QUANTITY] = @Original_ACTUAL_QUANTITY)) AND ((@IsNull_CHECKED_IN = 1 AND [CHECKED_IN] IS NULL) OR ([CHECKED_IN] = @Original_CHECKED_IN)) AND ([CHECKED_OUT] = @Original_CHECKED_OUT))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [group2bfa202330].[BOOK_DETAILS] WHERE (([ISBN] = @Original_ISBN) AND ([TITLE] = @Original_TITLE) AND ([PUBLISH_DATE] = @Original_PUBLISH_DATE) AND ((@IsNull_ACTUAL_QUANTITY = 1 AND [ACTUAL_QUANTITY] IS NULL) OR ([ACTUAL_QUANTITY] = @Original_ACTUAL_QUANTITY)) AND ((@IsNull_CHECKED_IN = 1 AND [CHECKED_IN] IS NULL) OR ([CHECKED_IN] = @Original_CHECKED_IN)) AND ([CHECKED_OUT] = @Original_CHECKED_OUT) AND ([AUTHOR] = @Original_AUTHOR) AND ([IMAGE_URL] = @Original_IMAGE_URL) AND ((@IsNull_SUBTITLE = 1 AND [SUBTITLE] IS NULL) OR ([SUBTITLE] = @Original_SUBTITLE)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1929,10 +2018,14 @@ namespace Minerva.inew2330fa20DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CHECKED_IN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_IN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CHECKED_IN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_IN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CHECKED_OUT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_OUT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AUTHOR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AUTHOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IMAGE_URL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IMAGE_URL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SUBTITLE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SUBTITLE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SUBTITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SUBTITLE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [group2bfa202330].[BOOK_DETAILS] ([ISBN], [TITLE], [PUBLISH_DATE], [ACTUAL_QUANTITY], [CHECKED_IN], [CHECKED_OUT]) VALUES (@ISBN, @TITLE, @PUBLISH_DATE, @ACTUAL_QUANTITY, @CHECKED_IN, @CHECKED_OUT);
-SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM group2bfa202330.BOOK_DETAILS WHERE (ISBN = @ISBN)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [group2bfa202330].[BOOK_DETAILS] ([ISBN], [TITLE], [PUBLISH_DATE], [ACTUAL_QUANTITY], [CHECKED_IN], [CHECKED_OUT], [AUTHOR], [IMAGE_URL], [SUBTITLE]) VALUES (@ISBN, @TITLE, @PUBLISH_DATE, @ACTUAL_QUANTITY, @CHECKED_IN, @CHECKED_OUT, @AUTHOR, @IMAGE_URL, @SUBTITLE);
+SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT, AUTHOR, IMAGE_URL, SUBTITLE FROM group2bfa202330.BOOK_DETAILS WHERE (ISBN = @ISBN)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1940,10 +2033,13 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACTUAL_QUANTITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACTUAL_QUANTITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CHECKED_IN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_IN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CHECKED_OUT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_OUT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AUTHOR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AUTHOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IMAGE_URL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IMAGE_URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SUBTITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SUBTITLE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [group2bfa202330].[BOOK_DETAILS] SET [ISBN] = @ISBN, [TITLE] = @TITLE, [PUBLISH_DATE] = @PUBLISH_DATE, [ACTUAL_QUANTITY] = @ACTUAL_QUANTITY, [CHECKED_IN] = @CHECKED_IN, [CHECKED_OUT] = @CHECKED_OUT WHERE (([ISBN] = @Original_ISBN) AND ([TITLE] = @Original_TITLE) AND ([PUBLISH_DATE] = @Original_PUBLISH_DATE) AND ((@IsNull_ACTUAL_QUANTITY = 1 AND [ACTUAL_QUANTITY] IS NULL) OR ([ACTUAL_QUANTITY] = @Original_ACTUAL_QUANTITY)) AND ((@IsNull_CHECKED_IN = 1 AND [CHECKED_IN] IS NULL) OR ([CHECKED_IN] = @Original_CHECKED_IN)) AND ([CHECKED_OUT] = @Original_CHECKED_OUT));
-SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM group2bfa202330.BOOK_DETAILS WHERE (ISBN = @ISBN)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [group2bfa202330].[BOOK_DETAILS] SET [ISBN] = @ISBN, [TITLE] = @TITLE, [PUBLISH_DATE] = @PUBLISH_DATE, [ACTUAL_QUANTITY] = @ACTUAL_QUANTITY, [CHECKED_IN] = @CHECKED_IN, [CHECKED_OUT] = @CHECKED_OUT, [AUTHOR] = @AUTHOR, [IMAGE_URL] = @IMAGE_URL, [SUBTITLE] = @SUBTITLE WHERE (([ISBN] = @Original_ISBN) AND ([TITLE] = @Original_TITLE) AND ([PUBLISH_DATE] = @Original_PUBLISH_DATE) AND ((@IsNull_ACTUAL_QUANTITY = 1 AND [ACTUAL_QUANTITY] IS NULL) OR ([ACTUAL_QUANTITY] = @Original_ACTUAL_QUANTITY)) AND ((@IsNull_CHECKED_IN = 1 AND [CHECKED_IN] IS NULL) OR ([CHECKED_IN] = @Original_CHECKED_IN)) AND ([CHECKED_OUT] = @Original_CHECKED_OUT) AND ([AUTHOR] = @Original_AUTHOR) AND ([IMAGE_URL] = @Original_IMAGE_URL) AND ((@IsNull_SUBTITLE = 1 AND [SUBTITLE] IS NULL) OR ([SUBTITLE] = @Original_SUBTITLE)));
+SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT, AUTHOR, IMAGE_URL, SUBTITLE FROM group2bfa202330.BOOK_DETAILS WHERE (ISBN = @ISBN)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1951,6 +2047,9 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACTUAL_QUANTITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACTUAL_QUANTITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CHECKED_IN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_IN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CHECKED_OUT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_OUT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AUTHOR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AUTHOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IMAGE_URL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IMAGE_URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SUBTITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SUBTITLE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PUBLISH_DATE", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PUBLISH_DATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1959,6 +2058,10 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CHECKED_IN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_IN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CHECKED_IN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_IN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CHECKED_OUT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHECKED_OUT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AUTHOR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AUTHOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IMAGE_URL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IMAGE_URL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SUBTITLE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SUBTITLE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SUBTITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SUBTITLE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1974,8 +2077,8 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM g" +
-                "roup2bfa202330.BOOK_DETAILS";
+            this._commandCollection[0].CommandText = "SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT, AUTHO" +
+                "R, IMAGE_URL, SUBTITLE FROM group2bfa202330.BOOK_DETAILS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2036,7 +2139,7 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ISBN, string Original_TITLE, System.DateTime Original_PUBLISH_DATE, global::System.Nullable<int> Original_ACTUAL_QUANTITY, global::System.Nullable<int> Original_CHECKED_IN, int Original_CHECKED_OUT) {
+        public virtual int Delete(int Original_ISBN, string Original_TITLE, System.DateTime Original_PUBLISH_DATE, global::System.Nullable<int> Original_ACTUAL_QUANTITY, global::System.Nullable<int> Original_CHECKED_IN, int Original_CHECKED_OUT, string Original_AUTHOR, string Original_IMAGE_URL, string Original_SUBTITLE) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ISBN));
             if ((Original_TITLE == null)) {
                 throw new global::System.ArgumentNullException("Original_TITLE");
@@ -2062,6 +2165,26 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_CHECKED_OUT));
+            if ((Original_AUTHOR == null)) {
+                throw new global::System.ArgumentNullException("Original_AUTHOR");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_AUTHOR));
+            }
+            if ((Original_IMAGE_URL == null)) {
+                throw new global::System.ArgumentNullException("Original_IMAGE_URL");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_IMAGE_URL));
+            }
+            if ((Original_SUBTITLE == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_SUBTITLE));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2082,7 +2205,7 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ISBN, string TITLE, System.DateTime PUBLISH_DATE, global::System.Nullable<int> ACTUAL_QUANTITY, global::System.Nullable<int> CHECKED_IN, int CHECKED_OUT) {
+        public virtual int Insert(int ISBN, string TITLE, System.DateTime PUBLISH_DATE, global::System.Nullable<int> ACTUAL_QUANTITY, global::System.Nullable<int> CHECKED_IN, int CHECKED_OUT, string AUTHOR, string IMAGE_URL, string SUBTITLE) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ISBN));
             if ((TITLE == null)) {
                 throw new global::System.ArgumentNullException("TITLE");
@@ -2104,6 +2227,24 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(CHECKED_OUT));
+            if ((AUTHOR == null)) {
+                throw new global::System.ArgumentNullException("AUTHOR");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(AUTHOR));
+            }
+            if ((IMAGE_URL == null)) {
+                throw new global::System.ArgumentNullException("IMAGE_URL");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(IMAGE_URL));
+            }
+            if ((SUBTITLE == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(SUBTITLE));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2124,7 +2265,25 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ISBN, string TITLE, System.DateTime PUBLISH_DATE, global::System.Nullable<int> ACTUAL_QUANTITY, global::System.Nullable<int> CHECKED_IN, int CHECKED_OUT, int Original_ISBN, string Original_TITLE, System.DateTime Original_PUBLISH_DATE, global::System.Nullable<int> Original_ACTUAL_QUANTITY, global::System.Nullable<int> Original_CHECKED_IN, int Original_CHECKED_OUT) {
+        public virtual int Update(
+                    int ISBN, 
+                    string TITLE, 
+                    System.DateTime PUBLISH_DATE, 
+                    global::System.Nullable<int> ACTUAL_QUANTITY, 
+                    global::System.Nullable<int> CHECKED_IN, 
+                    int CHECKED_OUT, 
+                    string AUTHOR, 
+                    string IMAGE_URL, 
+                    string SUBTITLE, 
+                    int Original_ISBN, 
+                    string Original_TITLE, 
+                    System.DateTime Original_PUBLISH_DATE, 
+                    global::System.Nullable<int> Original_ACTUAL_QUANTITY, 
+                    global::System.Nullable<int> Original_CHECKED_IN, 
+                    int Original_CHECKED_OUT, 
+                    string Original_AUTHOR, 
+                    string Original_IMAGE_URL, 
+                    string Original_SUBTITLE) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ISBN));
             if ((TITLE == null)) {
                 throw new global::System.ArgumentNullException("TITLE");
@@ -2146,31 +2305,69 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(CHECKED_OUT));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ISBN));
+            if ((AUTHOR == null)) {
+                throw new global::System.ArgumentNullException("AUTHOR");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(AUTHOR));
+            }
+            if ((IMAGE_URL == null)) {
+                throw new global::System.ArgumentNullException("IMAGE_URL");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(IMAGE_URL));
+            }
+            if ((SUBTITLE == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(SUBTITLE));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ISBN));
             if ((Original_TITLE == null)) {
                 throw new global::System.ArgumentNullException("Original_TITLE");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_TITLE));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_TITLE));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_PUBLISH_DATE));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_PUBLISH_DATE));
             if ((Original_ACTUAL_QUANTITY.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ACTUAL_QUANTITY.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_ACTUAL_QUANTITY.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_CHECKED_IN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_CHECKED_IN.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_CHECKED_IN.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_CHECKED_OUT));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_CHECKED_OUT));
+            if ((Original_AUTHOR == null)) {
+                throw new global::System.ArgumentNullException("Original_AUTHOR");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_AUTHOR));
+            }
+            if ((Original_IMAGE_URL == null)) {
+                throw new global::System.ArgumentNullException("Original_IMAGE_URL");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_IMAGE_URL));
+            }
+            if ((Original_SUBTITLE == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_SUBTITLE));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2191,8 +2388,25 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string TITLE, System.DateTime PUBLISH_DATE, global::System.Nullable<int> ACTUAL_QUANTITY, global::System.Nullable<int> CHECKED_IN, int CHECKED_OUT, int Original_ISBN, string Original_TITLE, System.DateTime Original_PUBLISH_DATE, global::System.Nullable<int> Original_ACTUAL_QUANTITY, global::System.Nullable<int> Original_CHECKED_IN, int Original_CHECKED_OUT) {
-            return this.Update(Original_ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT, Original_ISBN, Original_TITLE, Original_PUBLISH_DATE, Original_ACTUAL_QUANTITY, Original_CHECKED_IN, Original_CHECKED_OUT);
+        public virtual int Update(
+                    string TITLE, 
+                    System.DateTime PUBLISH_DATE, 
+                    global::System.Nullable<int> ACTUAL_QUANTITY, 
+                    global::System.Nullable<int> CHECKED_IN, 
+                    int CHECKED_OUT, 
+                    string AUTHOR, 
+                    string IMAGE_URL, 
+                    string SUBTITLE, 
+                    int Original_ISBN, 
+                    string Original_TITLE, 
+                    System.DateTime Original_PUBLISH_DATE, 
+                    global::System.Nullable<int> Original_ACTUAL_QUANTITY, 
+                    global::System.Nullable<int> Original_CHECKED_IN, 
+                    int Original_CHECKED_OUT, 
+                    string Original_AUTHOR, 
+                    string Original_IMAGE_URL, 
+                    string Original_SUBTITLE) {
+            return this.Update(Original_ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT, AUTHOR, IMAGE_URL, SUBTITLE, Original_ISBN, Original_TITLE, Original_PUBLISH_DATE, Original_ACTUAL_QUANTITY, Original_CHECKED_IN, Original_CHECKED_OUT, Original_AUTHOR, Original_IMAGE_URL, Original_SUBTITLE);
         }
     }
     
@@ -2319,21 +2533,51 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             tableMapping.DataSetTable = "TRANSACTION_DETAILS";
             tableMapping.ColumnMappings.Add("USER_ID", "USER_ID");
             tableMapping.ColumnMappings.Add("USERNAME", "USERNAME");
-            tableMapping.ColumnMappings.Add("ISBN", "ISBN");
             tableMapping.ColumnMappings.Add("QUANTITY", "QUANTITY");
             tableMapping.ColumnMappings.Add("ISSUED_BY", "ISSUED_BY");
+            tableMapping.ColumnMappings.Add("TRANSACTION_ID", "TRANSACTION_ID");
+            tableMapping.ColumnMappings.Add("TITLE", "TITLE");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [group2bfa202330].[TRANSACTION_DETAILS] WHERE (((@IsNull_USER_ID = 1 AND [USER_ID] IS NULL) OR ([USER_ID] = @Original_USER_ID)) AND ([USERNAME] = @Original_USERNAME) AND ([QUANTITY] = @Original_QUANTITY) AND ([ISSUED_BY] = @Original_ISSUED_BY) AND ([TRANSACTION_ID] = @Original_TRANSACTION_ID) AND ([TITLE] = @Original_TITLE))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USER_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_USERNAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USERNAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QUANTITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QUANTITY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ISSUED_BY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISSUED_BY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TRANSACTION_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANSACTION_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [group2bfa202330].[TRANSACTION_DETAILS] ([USER_ID], [USERNAME], [ISBN" +
-                "], [QUANTITY], [ISSUED_BY]) VALUES (@USER_ID, @USERNAME, @ISBN, @QUANTITY, @ISSU" +
-                "ED_BY)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [group2bfa202330].[TRANSACTION_DETAILS] ([USER_ID], [USERNAME], [QUANTITY], [ISSUED_BY], [TRANSACTION_ID], [TITLE]) VALUES (@USER_ID, @USERNAME, @QUANTITY, @ISSUED_BY, @TRANSACTION_ID, @TITLE);
+SELECT USER_ID, USERNAME, QUANTITY, ISSUED_BY, TRANSACTION_ID, TITLE FROM group2bfa202330.TRANSACTION_DETAILS WHERE (TRANSACTION_ID = @TRANSACTION_ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@USERNAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QUANTITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QUANTITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISSUED_BY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISSUED_BY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRANSACTION_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANSACTION_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [group2bfa202330].[TRANSACTION_DETAILS] SET [USER_ID] = @USER_ID, [USERNAME] = @USERNAME, [QUANTITY] = @QUANTITY, [ISSUED_BY] = @ISSUED_BY, [TRANSACTION_ID] = @TRANSACTION_ID, [TITLE] = @TITLE WHERE (((@IsNull_USER_ID = 1 AND [USER_ID] IS NULL) OR ([USER_ID] = @Original_USER_ID)) AND ([USERNAME] = @Original_USERNAME) AND ([QUANTITY] = @Original_QUANTITY) AND ([ISSUED_BY] = @Original_ISSUED_BY) AND ([TRANSACTION_ID] = @Original_TRANSACTION_ID) AND ([TITLE] = @Original_TITLE));
+SELECT USER_ID, USERNAME, QUANTITY, ISSUED_BY, TRANSACTION_ID, TITLE FROM group2bfa202330.TRANSACTION_DETAILS WHERE (TRANSACTION_ID = @TRANSACTION_ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@USERNAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USERNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QUANTITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QUANTITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISSUED_BY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISSUED_BY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRANSACTION_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANSACTION_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USER_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_USERNAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "USERNAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QUANTITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QUANTITY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ISSUED_BY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISSUED_BY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TRANSACTION_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANSACTION_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TITLE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TITLE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2349,8 +2593,8 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT USER_ID, USERNAME, ISBN, QUANTITY, ISSUED_BY FROM group2bfa202330.TRANSACT" +
-                "ION_DETAILS";
+            this._commandCollection[0].CommandText = "SELECT USER_ID, USERNAME, QUANTITY, ISSUED_BY, TRANSACTION_ID, TITLE FROM group2b" +
+                "fa202330.TRANSACTION_DETAILS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2410,8 +2654,52 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(global::System.Nullable<int> Original_USER_ID, string Original_USERNAME, int Original_QUANTITY, int Original_ISSUED_BY, int Original_TRANSACTION_ID, string Original_TITLE) {
+            if ((Original_USER_ID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_USER_ID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Original_USERNAME == null)) {
+                throw new global::System.ArgumentNullException("Original_USERNAME");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_USERNAME));
+            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_QUANTITY));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ISSUED_BY));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_TRANSACTION_ID));
+            if ((Original_TITLE == null)) {
+                throw new global::System.ArgumentNullException("Original_TITLE");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_TITLE));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> USER_ID, string USERNAME, global::System.Nullable<int> ISBN, int QUANTITY, int ISSUED_BY) {
+        public virtual int Insert(global::System.Nullable<int> USER_ID, string USERNAME, int QUANTITY, int ISSUED_BY, int TRANSACTION_ID, string TITLE) {
             if ((USER_ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(USER_ID.Value));
             }
@@ -2424,14 +2712,15 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(USERNAME));
             }
-            if ((ISBN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ISBN.Value));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(QUANTITY));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ISSUED_BY));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(TRANSACTION_ID));
+            if ((TITLE == null)) {
+                throw new global::System.ArgumentNullException("TITLE");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(TITLE));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(QUANTITY));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ISSUED_BY));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2446,6 +2735,79 @@ SELECT ISBN, TITLE, PUBLISH_DATE, ACTUAL_QUANTITY, CHECKED_IN, CHECKED_OUT FROM 
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> USER_ID, string USERNAME, int QUANTITY, int ISSUED_BY, int TRANSACTION_ID, string TITLE, global::System.Nullable<int> Original_USER_ID, string Original_USERNAME, int Original_QUANTITY, int Original_ISSUED_BY, int Original_TRANSACTION_ID, string Original_TITLE) {
+            if ((USER_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(USER_ID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((USERNAME == null)) {
+                throw new global::System.ArgumentNullException("USERNAME");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(USERNAME));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(QUANTITY));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ISSUED_BY));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(TRANSACTION_ID));
+            if ((TITLE == null)) {
+                throw new global::System.ArgumentNullException("TITLE");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(TITLE));
+            }
+            if ((Original_USER_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_USER_ID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_USERNAME == null)) {
+                throw new global::System.ArgumentNullException("Original_USERNAME");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_USERNAME));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_QUANTITY));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ISSUED_BY));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_TRANSACTION_ID));
+            if ((Original_TITLE == null)) {
+                throw new global::System.ArgumentNullException("Original_TITLE");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_TITLE));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> USER_ID, string USERNAME, int QUANTITY, int ISSUED_BY, string TITLE, global::System.Nullable<int> Original_USER_ID, string Original_USERNAME, int Original_QUANTITY, int Original_ISSUED_BY, int Original_TRANSACTION_ID, string Original_TITLE) {
+            return this.Update(USER_ID, USERNAME, QUANTITY, ISSUED_BY, Original_TRANSACTION_ID, TITLE, Original_USER_ID, Original_USERNAME, Original_QUANTITY, Original_ISSUED_BY, Original_TRANSACTION_ID, Original_TITLE);
         }
     }
     
@@ -3023,15 +3385,6 @@ SELECT USER_ID, USER_FIRSTNAME, USER_LASTNAME, USERNAME, PASSWORD, DESIGNATION F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(inew2330fa20DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bOOK_DETAILSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BOOK_DETAILS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bOOK_DETAILSTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._uSER_DETAILSTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.USER_DETAILS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -3050,6 +3403,15 @@ SELECT USER_ID, USER_FIRSTNAME, USER_LASTNAME, USERNAME, PASSWORD, DESIGNATION F
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._bOOK_DETAILSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BOOK_DETAILS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bOOK_DETAILSTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -3060,14 +3422,6 @@ SELECT USER_ID, USER_FIRSTNAME, USER_LASTNAME, USERNAME, PASSWORD, DESIGNATION F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(inew2330fa20DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bOOK_DETAILSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BOOK_DETAILS.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bOOK_DETAILSTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._uSER_DETAILSTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.USER_DETAILS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -3084,6 +3438,14 @@ SELECT USER_ID, USER_FIRSTNAME, USER_LASTNAME, USERNAME, PASSWORD, DESIGNATION F
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._bOOK_DETAILSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BOOK_DETAILS.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bOOK_DETAILSTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -3094,6 +3456,14 @@ SELECT USER_ID, USER_FIRSTNAME, USER_LASTNAME, USERNAME, PASSWORD, DESIGNATION F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(inew2330fa20DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._bOOK_DETAILSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BOOK_DETAILS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bOOK_DETAILSTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tRANSACTION_DETAILSTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TRANSACTION_DETAILS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -3107,14 +3477,6 @@ SELECT USER_ID, USER_FIRSTNAME, USER_LASTNAME, USERNAME, PASSWORD, DESIGNATION F
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._uSER_DETAILSTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._bOOK_DETAILSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BOOK_DETAILS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bOOK_DETAILSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

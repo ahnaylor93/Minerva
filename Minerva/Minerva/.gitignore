@@ -1,3 +1,4 @@
 ﻿# environmental variables
 .env
 *.suo
+frmMain.cs

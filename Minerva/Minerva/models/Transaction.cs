@@ -12,7 +12,7 @@ namespace Minerva.models
         public int transaction_id { get; set; }
         public int user_id { get; set; }
         public String username { get; set; }
-        public int ISBN { get; set; }
+        public int title { get; set; }
         public int quantity { get; set; }
         public int issued_by { get; set; }
     }

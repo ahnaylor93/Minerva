@@ -17,6 +17,8 @@ namespace Minerva
             InitializeComponent();
             ProgOps.ConnectDB();
             ProgOps._getAllBooks();
+            //remove before commit
+            models.ApiHelper.InitializeClient();
         }
     }
 }
