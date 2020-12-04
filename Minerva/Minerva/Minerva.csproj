@@ -119,10 +119,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>inew2330fa20DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="models\APIBookModel.cs" />
+    <Compile Include="models\APIBookResultModel.cs" />
     <Compile Include="models\ApiHelper.cs" />
-    <Compile Include="models\Book.cs" />
-    <Compile Include="models\Transaction.cs" />
-    <Compile Include="models\User.cs" />
+    <Compile Include="models\DBBookModel.cs" />
+    <Compile Include="models\TransactionModel.cs" />
+    <Compile Include="models\UserModel.cs" />
     <Compile Include="ProgOps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

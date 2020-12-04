@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Minerva
 {
@@ -29,9 +31,9 @@ namespace Minerva
         public static ArrayList UserListByQuery;
 
         // Model Objects
-        public static models.Book BookObject;
-        public static models.Transaction TransactionObject;
-        public static models.User UserObject;
+        public static models.DBBookModel BookObject;
+        public static models.TransactionModel TransactionObject;
+        public static models.UserModel UserObject;
 
         #endregion
 
@@ -139,87 +141,81 @@ namespace Minerva
         #region API Query Method
         // Searches API for book and creates C# object to be saved
 
-        public async Task _getBook(string searchQuery)
+        public static async Task<List<models.APIBookModel>> GetBook(String searchQuery)
         {
-            String url = "";
+            String url = "http://openlibrary.org/search.json?q=" + searchQuery;
 
-            using (HttpResponseMessage res = await models.ApiHelper.ApiClient.GetAsync(url))
+            using (HttpResponseMessage res = await models.APIHelper.APIClient.GetAsync(url))
             {
+                if (res.IsSuccessStatusCode)
+                {
+                    models.APIBookResultModel result = await res.Content.ReadAsAsync<models.APIBookResultModel>();
 
+                    return result.docs.ToList<models.APIBookModel>();
+                }
+                else
+                {
+                    throw new Exception(res.ReasonPhrase);
+                }
             }
         }
-        // ArrayList for Async Searches?
 
-        BookObject = new models.Book();
-            dynamic apiQuery = Utils.QUERY_STRING + searchQuery;
-        dynamic jsonObject = Utils._deserializeJSON(apiQuery);
+        #endregion
 
-        // Separate API Query
-        String imageQuery = Utils.IMAGE_QUERY + jsonObject.ISBN + Utils.IMG_TAG;
 
-        // set jsonObject values to BookObject values where needed. e.g. jsonObject.ISBN ect
+        #region DataTable Query Methods
+        // filter users and transactions ArrayList method?
 
-        BookObject.subtitle = jsonObject.subtitle? jsonObject.subtitle : null;
-
+        public static models.DBBookModel _getBookFromTable(string searchQuery)
+        {
+            BookObject = new models.DBBookModel();
             return BookObject;
         }
 
-    #endregion
+        public static models.UserModel _getUserFromTable(string searchQuery)
+        {
+            UserObject = new models.UserModel();
+            return UserObject;
+        }
+
+        public static ArrayList _getTransactionFromTable(string id)
+        {
+
+            TransactionListByQuery = new ArrayList();
+
+            /*
+             Requires DataTable search for transaction id or issuer_id
+
+             Returns all transactions to array list for print format
+             */
+
+            return TransactionListByQuery;
+        }
 
 
-    #region DataTable Query Methods
-    // filter users and transactions ArrayList method?
+        public static void _filterUsersFromTable(string designation)
+        {
 
-    public static models.Book _getBookFromTable(string searchQuery)
-    {
-        BookObject = new models.Book();
-        return BookObject;
+            UserListByQuery = new ArrayList();
+            //UserView = new DataGridView();
+
+            /*
+             Admin Query
+             Requires DataTable search for designation. get all Employees, etc.
+
+             Should update DataGridView
+             */
+        }
+
+        #endregion
+
+
+        #region Save Methods
+        // Maps Object data to DB; Can be used to update
+        // Runs on ```Are You Sure```
+        public static void _saveBook(models.DBBookModel bookObj) { }
+        public static void _saveUser(models.UserModel userObj) { }
+        public static void _saveTransaction(models.TransactionModel transactionObj) { }
+        #endregion
     }
-
-    public static models.User _getUserFromTable(string searchQuery)
-    {
-        UserObject = new models.User();
-        return UserObject;
-    }
-
-    public static ArrayList _getTransactionFromTable(string id)
-    {
-
-        TransactionListByQuery = new ArrayList();
-
-        /*
-         Requires DataTable search for transaction id or issuer_id
-
-         Returns all transactions to array list for print format
-         */
-
-        return TransactionListByQuery;
-    }
-
-
-    public static void _filterUsersFromTable(string designation)
-    {
-
-        UserListByQuery = new ArrayList();
-        //UserView = new DataGridView();
-
-        /*
-         Admin Query
-         Requires DataTable search for designation. get all Employees, etc.
-
-         Should update DataGridView
-         */
-    }
-
-    #endregion
-
-
-    #region Save Methods
-    // Maps Object data to DB; Can be used to update
-    // Runs on ```Are You Sure```
-    public static void _saveBook(models.Book bookObj) { }
-    public static void _saveUser(models.User userObj) { }
-    public static void _saveTransaction(models.Transaction transactionObj) { }
-    #endregion
-}
 }

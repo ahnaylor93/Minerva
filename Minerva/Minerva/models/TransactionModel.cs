@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Minerva.models
 {
-    public class Transaction
+    public class TransactionModel
     {
         // Model Transaction Object
         public int transaction_id { get; set; }

@@ -4,9 +4,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Minerva.models
 {
-    public class Book
+    public class DBBookModel
     {
-        // Model Book Object
+        // Model Book from DB Object
         public int ISBN { get; set; }
         public String title { get; set; }
         public String subtitle { get; set; }

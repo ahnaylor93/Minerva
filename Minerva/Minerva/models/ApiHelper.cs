@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Minerva.models
 {
-    public static class ApiHelper
+    public static class APIHelper
     {
-        public static HttpClient ApiClient { get; set; }
+        public static HttpClient APIClient { get; set; }
 
         public static void InitializeClient()
         {
-            ApiClient = new HttpClient();
-            ApiClient.DefaultRequestHeaders.Accept.Clear();
-            ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            APIClient = new HttpClient();
+            APIClient.DefaultRequestHeaders.Accept.Clear();
+            APIClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Minerva.models
 {
-    public class User
+    public class UserModel
     {
         // Model User Object
         public int user_id { get; set; }
