@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
@@ -40,89 +40,92 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblTitle.Location = new System.Drawing.Point(194, 43);
+            this.lblTitle.BackColor = System.Drawing.Color.Ivory;
+            this.lblTitle.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTitle.Location = new System.Drawing.Point(283, 52);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(430, 111);
+            this.lblTitle.Size = new System.Drawing.Size(423, 111);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Minerva";
             // 
-            // label1
+            // lblUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(219, 211);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Username:";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblUsername.Location = new System.Drawing.Point(182, 231);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(154, 31);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblPassword.Location = new System.Drawing.Point(221, 265);
+            this.lblPassword.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblPassword.Location = new System.Drawing.Point(182, 303);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(106, 22);
-            this.lblPassword.TabIndex = 3;
+            this.lblPassword.Size = new System.Drawing.Size(148, 31);
+            this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             // 
             // tbxUsername
             // 
-            this.tbxUsername.Location = new System.Drawing.Point(333, 208);
+            this.tbxUsername.Location = new System.Drawing.Point(342, 224);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(250, 29);
-            this.tbxUsername.TabIndex = 2;
+            this.tbxUsername.Size = new System.Drawing.Size(364, 45);
+            this.tbxUsername.TabIndex = 3;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(333, 262);
+            this.tbxPassword.Location = new System.Drawing.Point(342, 296);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(250, 29);
+            this.tbxPassword.PasswordChar = '*';
+            this.tbxPassword.Size = new System.Drawing.Size(364, 45);
             this.tbxPassword.TabIndex = 4;
+            this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // btnSignUp
             // 
-            this.btnSignUp.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSignUp.Location = new System.Drawing.Point(288, 323);
+            this.btnSignUp.Location = new System.Drawing.Point(342, 394);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(116, 35);
+            this.btnSignUp.Size = new System.Drawing.Size(163, 44);
             this.btnSignUp.TabIndex = 5;
-            this.btnSignUp.Text = "Sign-Up";
-            this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // btnSignIn
             // 
-            this.btnSignIn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSignIn.Location = new System.Drawing.Point(429, 323);
+            this.btnSignIn.Location = new System.Drawing.Point(543, 394);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(116, 35);
+            this.btnSignIn.Size = new System.Drawing.Size(163, 44);
             this.btnSignIn.TabIndex = 6;
-            this.btnSignIn.Text = "Sign-In";
-            this.btnSignIn.UseVisualStyleBackColor = false;
+            this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.UseVisualStyleBackColor = true;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Ivory;
-            this.ClientSize = new System.Drawing.Size(818, 416);
+            this.ClientSize = new System.Drawing.Size(988, 502);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblTitle);
-            this.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Minerva - Log In";
+            this.Text = "Minerva - Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,7 +135,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.TextBox tbxPassword;
@@ -140,4 +143,3 @@
         private System.Windows.Forms.Button btnSignIn;
     }
 }
-
