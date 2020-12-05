@@ -32,3 +32,38 @@ D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\.env
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.dll
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.csprojAssemblyReference.cache
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmLogin.resources
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.Properties.Resources.resources
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.GenerateResource.cache
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.CoreCompileInputs.cache
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.exe
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.pdb
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\Minerva.exe.config
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\Minerva.exe
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\Minerva.pdb
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\DotNetEnv.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\Newtonsoft.Json.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.AppContext.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Console.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Globalization.Calendars.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.IO.Compression.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.IO.FileSystem.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Net.Sockets.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Xml.ReaderWriter.dll
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\Newtonsoft.Json.xml
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.CopyComplete
+C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmSplash.resources
