@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Minerva
 {
@@ -29,9 +31,9 @@ namespace Minerva
         public static ArrayList UserListByQuery;
 
         // Model Objects
-        public static models.Book BookObject;
-        public static models.Transaction TransactionObject;
-        public static models.User UserObject;
+        public static models.DBBookModel BookObject;
+        public static models.TransactionModel TransactionObject;
+        public static models.UserModel UserObject;
 
         #endregion
 
@@ -59,13 +61,6 @@ namespace Minerva
         {
             _cntDatabase.Close();
             _cntDatabase.Dispose();
-        }
-
-        private void _queryAPI()
-        {
-            /*
-             TODO: Create data fetch 
-             */
         }
 
         #endregion
@@ -146,22 +141,23 @@ namespace Minerva
         #region API Query Method
         // Searches API for book and creates C# object to be saved
 
-        public static models.Book _getBook(string searchQuery)
+        public static async Task<List<models.APIBookModel>> GetBook(String searchQuery)
         {
-            // ArrayList for Async Searches?
+            String url = "http://openlibrary.org/search.json?q=" + searchQuery;
 
-            BookObject = new models.Book();
-            dynamic apiQuery = Utils.QUERY_STRING + searchQuery;
-            dynamic jsonObject = Utils._deserializeJSON(apiQuery);
+            using (HttpResponseMessage res = await models.APIHelper.APIClient.GetAsync(url))
+            {
+                if (res.IsSuccessStatusCode)
+                {
+                    models.APIBookResultModel result = await res.Content.ReadAsAsync<models.APIBookResultModel>();
 
-            // Separate API Query
-            String imageQuery = Utils.IMAGE_QUERY + jsonObject.ISBN + Utils.IMG_TAG;
-
-            // set jsonObject values to BookObject values where needed. e.g. jsonObject.ISBN ect
-
-            BookObject.subtitle = jsonObject.subtitle ? jsonObject.subtitle : null;
-
-            return BookObject;
+                    return result.docs.ToList<models.APIBookModel>();
+                }
+                else
+                {
+                    throw new Exception(res.ReasonPhrase);
+                }
+            }
         }
 
         #endregion
@@ -170,15 +166,15 @@ namespace Minerva
         #region DataTable Query Methods
         // filter users and transactions ArrayList method?
 
-        public static models.Book _getBookFromTable(string searchQuery)
+        public static models.DBBookModel _getBookFromTable(string searchQuery)
         {
-            BookObject = new models.Book();
+            BookObject = new models.DBBookModel();
             return BookObject;
         }
 
-        public static models.User _getUserFromTable(string searchQuery)
+        public static models.UserModel _getUserFromTable(string searchQuery)
         {
-            UserObject = new models.User();
+            UserObject = new models.UserModel();
             return UserObject;
         }
 
@@ -201,7 +197,7 @@ namespace Minerva
         {
 
             UserListByQuery = new ArrayList();
-            UserView = new DataGridView();
+            //UserView = new DataGridView();
 
             /*
              Admin Query
@@ -217,9 +213,9 @@ namespace Minerva
         #region Save Methods
         // Maps Object data to DB; Can be used to update
         // Runs on ```Are You Sure```
-        public static void _saveBook(models.Book bookObj) { }
-        public static void _saveUser(models.User userObj) { }
-        public static void _saveTransaction(models.Transaction transactionObj) { }
+        public static void _saveBook(models.DBBookModel bookObj) { }
+        public static void _saveUser(models.UserModel userObj) { }
+        public static void _saveTransaction(models.TransactionModel transactionObj) { }
         #endregion
     }
 }
