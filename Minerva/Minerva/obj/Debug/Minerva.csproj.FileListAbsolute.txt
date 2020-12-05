@@ -30,3 +30,5 @@ D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.CopyComplete
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\.env
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.dll
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.xml
