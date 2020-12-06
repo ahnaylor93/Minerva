@@ -26,13 +26,6 @@ namespace Minerva
             */
         }
 
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //Close the splash window to prevent it from keeping the program alive
-            //after it should terminate
-            frmSplash.frmActiveSplash.Close();
-        }
-
         private void btnSignUp_Click(object sender, EventArgs e)
         {
 
@@ -40,7 +33,17 @@ namespace Minerva
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-
+            //Check credentials against DB
+            //Determine access level
+            //Determine form to open based on access level
         }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Close the splash window to prevent it from keeping the program alive
+            //after it should terminate
+            frmSplash.frmActiveSplash.Close();
+        }
+
     }
 }

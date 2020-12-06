@@ -66,7 +66,7 @@
             this.lblPassword.Location = new System.Drawing.Point(182, 303);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(148, 31);
-            this.lblPassword.TabIndex = 2;
+            this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password:";
             // 
             // tbxUsername
@@ -74,7 +74,7 @@
             this.tbxUsername.Location = new System.Drawing.Point(342, 224);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(364, 45);
-            this.tbxUsername.TabIndex = 3;
+            this.tbxUsername.TabIndex = 2;
             // 
             // tbxPassword
             // 
