@@ -67,3 +67,9 @@ C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Diagnos
 C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.csproj.CopyComplete
 C:\Users\anayl\Documents\GitHub\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmSplash.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmAdminMenu.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmBooks.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmEmployees.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmLogin.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmSplash.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmUsers.resources

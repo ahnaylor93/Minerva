@@ -12,19 +12,22 @@ namespace Minerva
 {
     public partial class frmBooks : Form
     {
+
         public frmBooks()
         {
             InitializeComponent();
+            models.APIHelper.InitializeClient();
         }
 
-        private void frmBooks_Load(object sender, EventArgs e)
+        public String searchQuery = String.Empty;
+
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
+            tbxSearch.Text = searchQuery;
 
-        }
+            var bookSearch = await ProgOps.GetBook(searchQuery);
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
+            lblTitle.Text = bookSearch[0].title != null ? bookSearch[0].title : "No results available";
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)

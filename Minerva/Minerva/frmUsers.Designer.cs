@@ -34,10 +34,8 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.lvwUsers = new System.Windows.Forms.ListView();
-            this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFind
@@ -88,7 +86,7 @@
             // 
             this.tbxSearch.Location = new System.Drawing.Point(134, 299);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(455, 39);
+            this.tbxSearch.Size = new System.Drawing.Size(455, 38);
             this.tbxSearch.TabIndex = 2;
             // 
             // lblSearch
@@ -96,46 +94,38 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.Location = new System.Drawing.Point(13, 302);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(115, 31);
+            this.lblSearch.Size = new System.Drawing.Size(108, 31);
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search:";
             // 
-            // lvwUsers
+            // dataGridView1
             // 
-            this.lvwUsers.CheckBoxes = true;
-            this.lvwUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.EmployeeID,
-            this.Username,
-            this.Name});
-            this.lvwUsers.FullRowSelect = true;
-            this.lvwUsers.GridLines = true;
-            this.lvwUsers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvwUsers.HideSelection = false;
-            this.lvwUsers.Location = new System.Drawing.Point(19, 20);
-            this.lvwUsers.Name = "lvwUsers";
-            this.lvwUsers.Size = new System.Drawing.Size(963, 257);
-            this.lvwUsers.TabIndex = 0;
-            this.lvwUsers.UseCompatibleStateImageBehavior = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(978, 269);
+            this.dataGridView1.TabIndex = 7;
             // 
             // frmUsers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1011, 569);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.lvwUsers);
-            this.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "frmUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmUsers";
+            this.Text = "View Users";
             this.Load += new System.EventHandler(this.frmUsers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,9 +139,6 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.ListView lvwUsers;
-        private System.Windows.Forms.ColumnHeader EmployeeID;
-        private System.Windows.Forms.ColumnHeader Username;
-        private System.Windows.Forms.ColumnHeader Name;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

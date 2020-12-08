@@ -137,7 +137,6 @@
             this.Name = "frmBooks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minerva - Books";
-            this.Load += new System.EventHandler(this.frmBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

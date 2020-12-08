@@ -19,7 +19,7 @@ namespace Minerva
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            
+
             /*
             TODO:
             *establish database connection
@@ -45,5 +45,9 @@ namespace Minerva
             frmSplash.frmActiveSplash.Close();
         }
 
+        private void tbxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
