@@ -22,11 +22,13 @@ namespace Minerva
         #region Initialize
         // TransactionList for Receipts and Admin filtering
 
-        private static SqlConnection _cntDatabase;
+        public static SqlConnection _cntDatabase;
+        public static SqlDataAdapter _daRes;
 
-        public static DataTable UserTable = new DataTable();
-        public static DataTable BookTable = new DataTable();
-        public static DataTable TransactionTable = new DataTable();
+        public static DataTable UserTable;
+        public static DataTable BookTable;
+        public static DataTable TransactionTable;
+
         public static ArrayList TransactionListByQuery;
         public static ArrayList UserListByQuery;
 
@@ -47,7 +49,8 @@ namespace Minerva
             try
             {
                 if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
-                MessageBox.Show("Connection Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                // For test only
+                // MessageBox.Show("Connection Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
             catch (Exception ex)
@@ -113,6 +116,7 @@ namespace Minerva
                 return UserTable;
             }
         }
+
         public static DataTable _getAllTransactions()
         {
             // TransactionsForm will require => DataGridView TransactionView

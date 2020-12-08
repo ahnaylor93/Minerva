@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,15 +16,39 @@ namespace Minerva
         public frmLogin()
         {
             InitializeComponent();
+            ProgOps.ConnectDB();
+        }
+
+        DataTable dt;
+        public String username;
+        public String password;
+        bool isAdmin = false;
+
+        public bool CheckUserInfo(String un, String pw)
+        {
+            // check db for uname
+            // if != exist, messagebox
+            //if exist, check pw
+            // if pw incorrect messagebox "please check your information and try again"
+            // else establish level and login
+            return true;
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            // loads datatable on load 
+            dt = new DataTable();
 
-            /*
-            TODO:
-            *establish database connection
-            */
+            ProgOps._daRes = new SqlDataAdapter(Utils.DB_QUERY + "USER_DETAILS", ProgOps._cntDatabase);
+            ProgOps._daRes.Fill(dt);
+            DataColumn[] key = new DataColumn[1];
+            key[0] = dt.Columns["USER_ID"];
+            dt.PrimaryKey = key;
+            foreach (DataColumn dc in dt.Columns)
+            {
+                Console.WriteLine(dc);
+
+            }
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
@@ -33,9 +58,58 @@ namespace Minerva
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            //Check credentials against DB
-            //Determine access level
-            //Determine form to open based on access level
+            username = tbxUsername.Text;
+            password = tbxPassword.Text;
+
+            if (username == String.Empty || password == String.Empty)
+            {
+                MessageBox.Show("Username and Password are required", "Incomplete Fields", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        if (dr != null)
+                        {
+                            if (dr["USERNAME"].ToString() == username)
+                            {
+
+
+                                String pwCheck = dr.Field<String>("PASSWORD") != null ? dr.Field<String>("PASSWORD") : String.Empty;
+                                String level = dr.Field<String>("DESIGNATION") != null ? dr.Field<String>("DESIGNATION") : String.Empty;
+                                String user = dr.Field<String>("USER_FIRSTNAME") != null ? dr.Field<String>("USER_FIRSTNAME") + " " + dr.Field<String>("USER_LASTNAME") : String.Empty;
+
+                                //Check credentials against DB
+                                if (password == pwCheck)
+                                {
+                                    MessageBox.Show("Welcome to Minerva, " + user, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                    //Determine access level
+                                    if (level.ToLower() == "admin") isAdmin = true;
+                                    //Determine form to open based on access level
+                                    // create main menu and admin main menu
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    tbxUsername.Text = String.Empty;
+                                    tbxPassword.Text = String.Empty;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            tbxUsername.Text = String.Empty;
+                            tbxPassword.Text = String.Empty;
+                        }
+                    }
+
+                }
+
+            }
+
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -43,11 +117,6 @@ namespace Minerva
             //Close the splash window to prevent it from keeping the program alive
             //after it should terminate
             frmSplash.frmActiveSplash.Close();
-        }
-
-        private void tbxUsername_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
