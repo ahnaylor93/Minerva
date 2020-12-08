@@ -25,9 +25,17 @@ namespace Minerva
         {
             tbxSearch.Text = searchQuery;
 
-            var bookSearch = await ProgOps.GetBook(searchQuery);
+            if (searchQuery == String.Empty)
+            {
+                MessageBox.Show("Be sure to enter information for your search", "Missing information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else
+            {
+                var bookSearch = await ProgOps.GetBook(searchQuery);
 
-            lblTitle.Text = bookSearch[0].title != null ? bookSearch[0].title : "No results available";
+                lblTitle.Text = bookSearch[0].title != null ? bookSearch[0].title : "No results available";
+            }
+
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)

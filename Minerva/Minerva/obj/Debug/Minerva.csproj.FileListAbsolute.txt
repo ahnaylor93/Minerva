@@ -74,3 +74,6 @@ D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmSplash.resources
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmUsers.resources
 D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmSignup.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmMainMenu.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmEmployeeMenu.resources
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmTransaction.resources

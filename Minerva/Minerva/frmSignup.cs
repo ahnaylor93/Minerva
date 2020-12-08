@@ -103,6 +103,7 @@ namespace Minerva
                             cmd.ExecuteNonQuery();
                         }
                     }
+                    ProgOps.CloseDB();
                     SetDefaults();
                     MessageBox.Show("Account Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
