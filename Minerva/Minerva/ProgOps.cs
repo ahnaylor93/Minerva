@@ -218,8 +218,35 @@ namespace Minerva
         // Maps Object data to DB; Can be used to update
         // Runs on ```Are You Sure```
         public static void _saveBook(models.DBBookModel bookObj) { }
-        public static void _saveUser(models.UserModel userObj) { }
+
+        public static void _saveUser(int user_id, String
+            firstname, String lastname, String username, String password, String access)
+        {
+            String upd;
+
+            user_id = Utils._IDGenerator();
+
+            using (ProgOps._cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+            {
+                ProgOps._cntDatabase.Open();
+                upd = "INSERT INTO " + Utils.DB + ".USER_DETAILS ";
+                upd += "VALUES(@USER_ID, @USER_FIRSTNAME, @USER_LASTNAME, @USERNAME, @PASSWORD, @DESIGNATION)";
+                using (var cmd = new SqlCommand(upd, ProgOps._cntDatabase))
+                {
+                    cmd.Parameters.AddWithValue("@USER_ID", user_id);
+                    cmd.Parameters.AddWithValue("@USER_FIRSTNAME", firstname);
+                    cmd.Parameters.AddWithValue("@USER_LASTNAME", lastname);
+                    cmd.Parameters.AddWithValue("@USERNAME", username);
+                    cmd.Parameters.AddWithValue("@PASSWORD", password);
+                    cmd.Parameters.AddWithValue("@DESIGNATION", access);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static void _saveTransaction(models.TransactionModel transactionObj) { }
+
         #endregion
     }
 }

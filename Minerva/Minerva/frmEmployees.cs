@@ -19,8 +19,6 @@ namespace Minerva
 
         private void frmEmployees_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'inew2330fa20DataSet.USER_DETAILS' table. You can move, or remove it, as needed.
-            this.uSER_DETAILSTableAdapter.Fill(this.inew2330fa20DataSet.USER_DETAILS);
 
         }
 

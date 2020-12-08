@@ -64,6 +64,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRemove
             // 
@@ -106,6 +107,7 @@
             this.Name = "frmTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patron Transactions";
+            this.Load += new System.EventHandler(this.frmTransaction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
