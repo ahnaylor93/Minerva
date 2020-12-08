@@ -60,7 +60,7 @@ namespace Minerva
             }
         }
 
-        public void CloseDB()
+        public static void CloseDB()
         {
             _cntDatabase.Close();
             _cntDatabase.Dispose();

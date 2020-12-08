@@ -20,19 +20,9 @@ namespace Minerva
         }
 
         DataTable dt;
-        public String username;
-        public String password;
+        String username;
+        String password;
         bool isAdmin = false;
-
-        public bool CheckUserInfo(String un, String pw)
-        {
-            // check db for uname
-            // if != exist, messagebox
-            //if exist, check pw
-            // if pw incorrect messagebox "please check your information and try again"
-            // else establish level and login
-            return true;
-        }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -44,16 +34,14 @@ namespace Minerva
             DataColumn[] key = new DataColumn[1];
             key[0] = dt.Columns["USER_ID"];
             dt.PrimaryKey = key;
-            foreach (DataColumn dc in dt.Columns)
-            {
-                Console.WriteLine(dc);
-
-            }
+            ProgOps.CloseDB();
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
+            frmSignup signup = new frmSignup();
+            signup.Show();
+            this.Hide();
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -75,8 +63,6 @@ namespace Minerva
                         {
                             if (dr["USERNAME"].ToString() == username)
                             {
-
-
                                 String pwCheck = dr.Field<String>("PASSWORD") != null ? dr.Field<String>("PASSWORD") : String.Empty;
                                 String level = dr.Field<String>("DESIGNATION") != null ? dr.Field<String>("DESIGNATION") : String.Empty;
                                 String user = dr.Field<String>("USER_FIRSTNAME") != null ? dr.Field<String>("USER_FIRSTNAME") + " " + dr.Field<String>("USER_LASTNAME") : String.Empty;
@@ -97,13 +83,14 @@ namespace Minerva
                                     tbxPassword.Text = String.Empty;
                                 }
                             }
+                            else
+                            {
+                                MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                tbxUsername.Text = String.Empty;
+                                tbxPassword.Text = String.Empty;
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            tbxUsername.Text = String.Empty;
-                            tbxPassword.Text = String.Empty;
-                        }
+
                     }
 
                 }
