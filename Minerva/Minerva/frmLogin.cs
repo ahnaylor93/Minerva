@@ -20,6 +20,7 @@ namespace Minerva
         }
 
         DataTable dt;
+        public static int user_id;
         public static String username;
         public static String access;
         String password;
@@ -64,8 +65,10 @@ namespace Minerva
                             if (dr["USERNAME"].ToString() == username)
                             {
                                 String pwCheck = dr.Field<String>("PASSWORD") != null ? dr.Field<String>("PASSWORD") : String.Empty;
+
                                 //Determine access level
                                 access = dr.Field<String>("DESIGNATION") != null ? dr.Field<String>("DESIGNATION") : String.Empty;
+                                user_id = dr.Field<Int32>("USER_ID");
                                 String user = dr.Field<String>("USER_FIRSTNAME") != null ? dr.Field<String>("USER_FIRSTNAME") + " " + dr.Field<String>("USER_LASTNAME") : String.Empty;
 
                                 //Check credentials against DB

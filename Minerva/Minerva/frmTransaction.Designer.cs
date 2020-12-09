@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTransactions = new System.Windows.Forms.DataGridView();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvTransactions
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(978, 262);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransactions.Location = new System.Drawing.Point(19, 19);
+            this.dgvTransactions.Name = "dgvTransactions";
+            this.dgvTransactions.Size = new System.Drawing.Size(978, 262);
+            this.dgvTransactions.TabIndex = 14;
             // 
             // btnFind
             // 
@@ -98,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1011, 569);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTransactions);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRemove);
@@ -108,7 +108,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patron Transactions";
             this.Load += new System.EventHandler(this.frmTransaction_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +116,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTransactions;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRemove;
