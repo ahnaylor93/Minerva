@@ -19,7 +19,8 @@ namespace Minerva
             models.APIHelper.InitializeClient();
         }
 
-        public String searchQuery = String.Empty;
+        public String searchQuery;
+
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
@@ -35,18 +36,43 @@ namespace Minerva
 
                 lblTitle.Text = bookSearch[0].title != null ? bookSearch[0].title : "No results available";
             }
-
         }
 
-        private void btnAddToCart_Click(object sender, EventArgs e)
+        private void btnCart_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            //close this window
-            this.Close();
+            switch (frmLogin.access)
+            {
+                case "Patron":
+                    frmMainMenu main = new frmMainMenu();
+                    this.Hide();
+                    main.ShowDialog();
+                    this.Close();
+                    break;
+                case "Employee":
+                    frmEmployeeMenu emp = new frmEmployeeMenu();
+                    this.Hide();
+                    emp.ShowDialog();
+                    this.Close();
+                    break;
+                case "Admin":
+                    frmAdminMenu admin = new frmAdminMenu();
+                    this.Hide();
+                    admin.ShowDialog();
+                    this.Close();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
