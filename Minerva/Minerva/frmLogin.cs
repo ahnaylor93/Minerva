@@ -23,8 +23,9 @@ namespace Minerva
         public static int user_id;
         public static String username;
         public static String access;
-        String password;
 
+        String password;
+        public bool flag = false;
         private void frmLogin_Load(object sender, EventArgs e)
         {
             // loads datatable on load 
@@ -61,52 +62,46 @@ namespace Minerva
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        if (dr != null)
+                        if (dr["USERNAME"].ToString() != username)
                         {
-                            if (dr["USERNAME"].ToString() == username)
+                            continue;
+                        }
+                        else
+                        {
+                            flag = true;
+                            String pwCheck = dr.Field<String>("PASSWORD") != null ? dr.Field<String>("PASSWORD") : String.Empty;
+
+                            //Determine access level
+                            access = dr.Field<String>("DESIGNATION") != null ? dr.Field<String>("DESIGNATION") : String.Empty;
+                            user_id = dr.Field<Int32>("USER_ID");
+                            String user = dr.Field<String>("USER_FIRSTNAME") != null ? dr.Field<String>("USER_FIRSTNAME") + " " + dr.Field<String>("USER_LASTNAME") : String.Empty;
+
+                            //Check credentials against DB
+                            if (password == pwCheck)
                             {
-                                String pwCheck = dr.Field<String>("PASSWORD") != null ? dr.Field<String>("PASSWORD") : String.Empty;
+                                MessageBox.Show("Welcome to Minerva, " + user, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                                //Determine access level
-                                access = dr.Field<String>("DESIGNATION") != null ? dr.Field<String>("DESIGNATION") : String.Empty;
-                                user_id = dr.Field<Int32>("USER_ID");
-                                String user = dr.Field<String>("USER_FIRSTNAME") != null ? dr.Field<String>("USER_FIRSTNAME") + " " + dr.Field<String>("USER_LASTNAME") : String.Empty;
-
-                                //Check credentials against DB
-                                if (password == pwCheck)
+                                //Determine form to open based on access level
+                                switch (access)
                                 {
-                                    MessageBox.Show("Welcome to Minerva, " + user, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                                    //Determine form to open based on access level
-                                    switch (access)
-                                    {
-                                        case "Patron":
-                                            frmMainMenu main = new frmMainMenu();
-                                            this.Hide();
-                                            main.ShowDialog();
-                                            break;
-                                        case "Employee":
-                                            frmEmployeeMenu emp = new frmEmployeeMenu();
-                                            this.Hide();
-                                            emp.ShowDialog();
-                                            break;
-                                        case "Admin":
-                                            frmAdminMenu admin = new frmAdminMenu();
-                                            this.Hide();
-                                            admin.ShowDialog();
-                                            break;
-                                        default:
-                                            break;
-                                    }
-
+                                    case "Patron":
+                                        frmMainMenu main = new frmMainMenu();
+                                        this.Hide();
+                                        main.ShowDialog();
+                                        break;
+                                    case "Employee":
+                                        frmEmployeeMenu emp = new frmEmployeeMenu();
+                                        this.Hide();
+                                        emp.ShowDialog();
+                                        break;
+                                    case "Admin":
+                                        frmAdminMenu admin = new frmAdminMenu();
+                                        this.Hide();
+                                        admin.ShowDialog();
+                                        break;
+                                    default:
+                                        break;
                                 }
-                                else
-                                {
-                                    MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    tbxUsername.Text = String.Empty;
-                                    tbxPassword.Text = String.Empty;
-                                }
-                                break;
                             }
                             else
                             {
@@ -116,7 +111,12 @@ namespace Minerva
                             }
                             break;
                         }
-
+                    }
+                    if (flag == false)
+                    {
+                        MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tbxUsername.Text = String.Empty;
+                        tbxPassword.Text = String.Empty;
                     }
 
                 }
