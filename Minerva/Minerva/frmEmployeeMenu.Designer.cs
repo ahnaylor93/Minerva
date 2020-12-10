@@ -35,6 +35,7 @@
             this.lblUname = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogOut
@@ -114,12 +115,24 @@
             this.lblTitle.TabIndex = 10;
             this.lblTitle.Text = "Welcome Minerva Employee";
             // 
+            // btnUsers
+            // 
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUsers.Location = new System.Drawing.Point(413, 229);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(163, 44);
+            this.btnUsers.TabIndex = 17;
+            this.btnUsers.Text = "Check &Users";
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
             // frmEmployeeMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(988, 502);
+            this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnTransact);
@@ -145,5 +158,6 @@
         private System.Windows.Forms.Label lblUname;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnUsers;
     }
 }

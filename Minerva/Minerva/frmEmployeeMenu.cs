@@ -58,5 +58,11 @@ namespace Minerva
             }
         }
 
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            frmUsers users = new frmUsers();
+            this.Hide();
+            users.ShowDialog();
+        }
     }
 }

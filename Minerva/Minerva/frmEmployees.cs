@@ -209,7 +209,7 @@ namespace Minerva
             }
             else if (user_id == frmLogin.user_id)
             {
-                MessageBox.Show("You may not change your own informattion", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You may not change your own information", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.frmEmployees_Load(null, null);
             }
             else
