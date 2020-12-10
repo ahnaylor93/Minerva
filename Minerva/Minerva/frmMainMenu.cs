@@ -44,7 +44,7 @@ namespace Minerva
             {
                 ProgOps.CloseDB();
                 this.Close();
-                Application.Exit();
+                Environment.Exit(0);
             }
         }
 

@@ -30,7 +30,7 @@
         {
             this.dgvTransactions = new System.Windows.Forms.DataGridView();
             this.btnFind = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -55,16 +55,16 @@
             this.btnFind.Text = "&Find Transaction";
             this.btnFind.UseVisualStyleBackColor = true;
             // 
-            // btnExit
+            // btnBack
             // 
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Location = new System.Drawing.Point(715, 510);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(282, 39);
-            this.btnExit.TabIndex = 13;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBack.Location = new System.Drawing.Point(715, 510);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(282, 39);
+            this.btnBack.TabIndex = 13;
+            this.btnBack.Text = "&Go Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnRemove
             // 
@@ -100,7 +100,7 @@
             this.ClientSize = new System.Drawing.Size(1011, 569);
             this.Controls.Add(this.dgvTransactions);
             this.Controls.Add(this.btnFind);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.lblSearch);
@@ -118,7 +118,7 @@
 
         private System.Windows.Forms.DataGridView dgvTransactions;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label lblSearch;
