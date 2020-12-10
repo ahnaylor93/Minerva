@@ -139,6 +139,35 @@ namespace Minerva
 
         #endregion
 
+        #region Delete Methods
+        public static bool _deleteTransactionFromDB(int ID)
+        {
+            String del;
+            bool flag = false;
+            try
+            {
+                using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+                {
+                    del = "DELETE FROM " + Utils.DB + ".TRANSACTION_DETAILS ";
+                    del += "WHERE TRANSACTION_ID = " + ID;
+
+                    using (SqlCommand cmd = new SqlCommand(del, _cntDatabase))
+                    {
+                        _cntDatabase.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    flag = true;
+                    CloseDB();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return flag;
+        }
+
+        #endregion
 
         #region Save Methods
         // Maps Object data to DB; Can be used to update
@@ -152,12 +181,12 @@ namespace Minerva
 
             user_id = Utils._IDGenerator();
 
-            using (ProgOps._cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
             {
-                ProgOps._cntDatabase.Open();
+                _cntDatabase.Open();
                 upd = "INSERT INTO " + Utils.DB + ".USER_DETAILS ";
                 upd += "VALUES(@USER_ID, @USER_FIRSTNAME, @USER_LASTNAME, @USERNAME, @PASSWORD, @DESIGNATION)";
-                using (var cmd = new SqlCommand(upd, ProgOps._cntDatabase))
+                using (var cmd = new SqlCommand(upd, _cntDatabase))
                 {
                     cmd.Parameters.AddWithValue("@USER_ID", user_id);
                     cmd.Parameters.AddWithValue("@USER_FIRSTNAME", firstname);
@@ -168,10 +197,14 @@ namespace Minerva
 
                     cmd.ExecuteNonQuery();
                 }
+                CloseDB();
             }
         }
 
-        public static void _saveTransaction(models.TransactionModel transactionObj) { }
+        public static void _saveTransaction(models.TransactionModel transactionObj)
+        {
+
+        }
 
         #endregion
     }

@@ -16,15 +16,16 @@ namespace Minerva
         public frmTransaction()
         {
             InitializeComponent();
-            ProgOps.ConnectDB();
         }
 
         public String searchQuery;
+        public String del;
         public DataView dv;
+
         private void frmTransaction_Load(object sender, EventArgs e)
         {
-            // Hide result label
-            lblRes.Visible = false;
+            ProgOps.ConnectDB();
+
             cbxSearch.SelectedItem = "User ID";
 
             // set main datatable
@@ -61,10 +62,14 @@ namespace Minerva
             dgvTransactions.Columns[0].HeaderText = "Patron ID";
             dgvTransactions.Columns[1].HeaderText = "Username";
             dgvTransactions.Columns[2].HeaderText = "Book ISBN";
-            dgvTransactions.Columns[3].HeaderText = "Quantuty checked out";
+            dgvTransactions.Columns[3].HeaderText = "Quantity";
             dgvTransactions.Columns[4].HeaderText = "Issued By";
             dgvTransactions.Columns[5].HeaderText = "Transaction ID";
             dgvTransactions.Columns[6].HeaderText = "Book Title";
+
+            // Hide result label
+            if (dgvTransactions.Rows.Count == 1) lblRes.Visible = true;
+            else lblRes.Visible = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -97,7 +102,6 @@ namespace Minerva
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-
             searchQuery = tbxSearch.Text;
             if (searchQuery == " ")
             {
@@ -115,7 +119,8 @@ namespace Minerva
                         else
                         {
                             dv = ProgOps.TransactionTable.DefaultView;
-                            dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USER_ID", searchQuery);
+                            del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USER_ID", searchQuery);
+                            dv.RowFilter = del;
                             if (dgvTransactions.Rows.Count == 1)
                             {
                                 dgvTransactions.DataSource = dv;
@@ -132,7 +137,8 @@ namespace Minerva
                         break;
                     case "Username":
                         dv = ProgOps.TransactionTable.DefaultView;
-                        dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USERNAME", searchQuery);
+                        del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USERNAME", searchQuery);
+                        dv.RowFilter = del;
 
                         if (dgvTransactions.Rows.Count == 1)
                         {
@@ -148,58 +154,110 @@ namespace Minerva
                         }
                         break;
                     case "ISBN":
-                        dv = ProgOps.TransactionTable.DefaultView;
-                        dv.RowFilter = "ISBN LIKE '" + searchQuery + "%'";
-                        if (dv.Table.Rows.Count > 0)
-                            dgvTransactions.DataSource = dv;
+                        if (!int.TryParse(searchQuery, out num))
+                        {
+                            MessageBox.Show("Please enter a valid user id", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         else
                         {
-                            dgvTransactions.DataSource = dv;
-                            lblRes.Visible = true;
+                            dv = ProgOps.TransactionTable.DefaultView;
+                            del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "ISBN", searchQuery);
+                            dv.RowFilter = del;
+                            if (dgvTransactions.Rows.Count == 1)
+                            {
+                                dgvTransactions.DataSource = dv;
+                                lblRes.Visible = true;
+                                tbxSearch.Text = String.Empty;
+                            }
+                            else
+                            {
+                                dgvTransactions.DataSource = dv;
+                                lblRes.Visible = false;
+                                tbxSearch.Text = String.Empty;
+                            }
                         }
                         break;
                     case "Quantity":
-                        dv = ProgOps.TransactionTable.DefaultView;
-                        dv.RowFilter = "QUANTITY LIKE '" + searchQuery + "%'";
-                        if (dgvTransactions.Rows.Count > 0)
-                            dgvTransactions.DataSource = dv;
+                        if (!int.TryParse(searchQuery, out num))
+                        {
+                            MessageBox.Show("Please enter a valid user id", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         else
                         {
-                            dgvTransactions.DataSource = dv;
-                            lblRes.Visible = true;
+                            dv = ProgOps.TransactionTable.DefaultView;
+                            del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "QUANTITY", searchQuery);
+                            dv.RowFilter = del;
+                            if (dgvTransactions.Rows.Count == 1)
+                            {
+                                dgvTransactions.DataSource = dv;
+                                lblRes.Visible = true;
+                                tbxSearch.Text = String.Empty;
+                            }
+                            else
+                            {
+                                dgvTransactions.DataSource = dv;
+                                lblRes.Visible = false;
+                                tbxSearch.Text = String.Empty;
+                            }
                         }
                         break;
                     case "Issuer":
                         dv = ProgOps.TransactionTable.DefaultView;
-                        dv.RowFilter = "ISSUED_BY LIKE '" + searchQuery + "%'";
-                        if (dv.Table.Rows.Count > 0)
-                            dgvTransactions.DataSource = dv;
-                        else
+                        del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "ISSUED_BY", searchQuery);
+                        dv.RowFilter = del;
+
+                        if (dgvTransactions.Rows.Count == 1)
                         {
                             dgvTransactions.DataSource = dv;
                             lblRes.Visible = true;
+                            tbxSearch.Text = String.Empty;
+                        }
+                        else
+                        {
+                            dgvTransactions.DataSource = dv;
+                            lblRes.Visible = false;
+                            tbxSearch.Text = String.Empty;
                         }
                         break;
                     case "Trans. ID":
-                        dv = ProgOps.TransactionTable.DefaultView;
-                        dv.RowFilter = "TRANSACTION_ID LIKE '" + searchQuery + "%'";
-                        if (dv.Table.Rows.Count > 0)
-                            dgvTransactions.DataSource = dv;
+                        if (!int.TryParse(searchQuery, out num))
+                        {
+                            MessageBox.Show("Please enter a valid user id", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         else
                         {
-                            dgvTransactions.DataSource = dv;
-                            lblRes.Visible = true;
+                            dv = ProgOps.TransactionTable.DefaultView;
+                            dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "TRANSACTION_ID", searchQuery);
+                            if (dgvTransactions.Rows.Count == 1)
+                            {
+                                dgvTransactions.DataSource = dv;
+                                lblRes.Visible = true;
+                                tbxSearch.Text = String.Empty;
+                            }
+                            else
+                            {
+                                dgvTransactions.DataSource = dv;
+                                lblRes.Visible = false;
+                                tbxSearch.Text = String.Empty;
+                            }
                         }
                         break;
                     case "Title":
                         dv = ProgOps.TransactionTable.DefaultView;
-                        dv.RowFilter = "TITLE LIKE '" + searchQuery + "%'";
-                        if (dv.Table.Rows.Count > 0)
-                            dgvTransactions.DataSource = dv;
-                        else
+                        del = "WHERE TITLE = " + searchQuery;
+                        dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "TITLE", searchQuery);
+
+                        if (dgvTransactions.Rows.Count == 1)
                         {
                             dgvTransactions.DataSource = dv;
                             lblRes.Visible = true;
+                            tbxSearch.Text = String.Empty;
+                        }
+                        else
+                        {
+                            dgvTransactions.DataSource = dv;
+                            lblRes.Visible = false;
+                            tbxSearch.Text = String.Empty;
                         }
                         break;
                     default:
@@ -210,13 +268,30 @@ namespace Minerva
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            // Reset DataGridView   
-            dgvTransactions.DataSource = null;
-            dgvTransactions.DataSource = ProgOps.TransactionTable;
+            this.frmTransaction_Load(null, null);
+        }
 
-            // Reset forms
-            lblRes.Visible = false;
-            tbxSearch.Text = String.Empty;
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this transaction?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int rowIndex = dgvTransactions.CurrentCell.RowIndex;
+                int id = (int)dgvTransactions.Rows[rowIndex].Cells[5].Value;
+                bool checker = ProgOps._deleteTransactionFromDB(id);
+                if (checker)
+                {
+                    MessageBox.Show("Record Deleted Successfully", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTransaction_Load(null, null);
+                }
+            }
+
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

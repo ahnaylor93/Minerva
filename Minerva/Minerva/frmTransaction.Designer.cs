@@ -37,6 +37,7 @@
             this.cbxSearch = new System.Windows.Forms.ComboBox();
             this.lblRes = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             // btnBack
             // 
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBack.Location = new System.Drawing.Point(715, 510);
+            this.btnBack.Location = new System.Drawing.Point(715, 518);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(282, 39);
             this.btnBack.TabIndex = 13;
@@ -75,12 +76,13 @@
             // btnRemove
             // 
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemove.Location = new System.Drawing.Point(717, 345);
+            this.btnRemove.Location = new System.Drawing.Point(715, 345);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(282, 39);
             this.btnRemove.TabIndex = 12;
             this.btnRemove.Text = "&Remove Transaction";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // tbxSearch
             // 
@@ -137,12 +139,24 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrint.Location = new System.Drawing.Point(12, 518);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(282, 39);
+            this.btnPrint.TabIndex = 18;
+            this.btnPrint.Text = "&Print Receipt";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1011, 569);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblRes);
             this.Controls.Add(this.cbxSearch);
@@ -173,5 +187,6 @@
         private System.Windows.Forms.ComboBox cbxSearch;
         private System.Windows.Forms.Label lblRes;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
