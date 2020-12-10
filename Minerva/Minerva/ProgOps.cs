@@ -139,6 +139,7 @@ namespace Minerva
 
         #endregion
 
+
         #region Delete Methods
         public static bool _deleteTransactionFromDB(int ID)
         {
@@ -167,7 +168,44 @@ namespace Minerva
             return flag;
         }
 
+        public static bool _deleteUserFromDB(int ID)
+        {
+            String del;
+            bool flag = false;
+
+            if (ID == frmLogin.user_id)
+            {
+                MessageBox.Show("You may not delete your own account", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return flag;
+            }
+            else
+            {
+                try
+                {
+                    using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+                    {
+                        del = "DELETE FROM " + Utils.DB + ".USER_DETAILS ";
+                        del += "WHERE USER_ID = " + ID;
+
+                        using (SqlCommand cmd = new SqlCommand(del, _cntDatabase))
+                        {
+                            _cntDatabase.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                        flag = true;
+                        CloseDB();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                return flag;
+            }
+        }
+
         #endregion
+
 
         #region Save Methods
         // Maps Object data to DB; Can be used to update
@@ -199,6 +237,42 @@ namespace Minerva
                 }
                 CloseDB();
             }
+        }
+
+        public static bool _updateUser(int user_id, String
+            firstname, String lastname, String username, String password, String access)
+        {
+            String upd;
+            bool flag = false;
+            try
+            {
+                using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+                {
+                    _cntDatabase.Open();
+                    upd = "UPDATE " + Utils.DB + ".USER_DETAILS ";
+                    upd += "SET USER_FIRSTNAME = @USER_FIRSTNAME, USER_LASTNAME = @USER_LASTNAME, " +
+                        "USERNAME = @USERNAME, PASSWORD = @PASSWORD, DESIGNATION = @DESIGNATION ";
+                    upd += "WHERE USER_ID = @USER_ID";
+                    using (var cmd = new SqlCommand(upd, _cntDatabase))
+                    {
+                        cmd.Parameters.AddWithValue("@USER_ID", user_id);
+                        cmd.Parameters.AddWithValue("@USER_FIRSTNAME", firstname);
+                        cmd.Parameters.AddWithValue("@USER_LASTNAME", lastname);
+                        cmd.Parameters.AddWithValue("@USERNAME", username);
+                        cmd.Parameters.AddWithValue("@PASSWORD", password);
+                        cmd.Parameters.AddWithValue("@DESIGNATION", access);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    flag = true;
+                    CloseDB();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return flag;
         }
 
         public static void _saveTransaction(models.TransactionModel transactionObj)

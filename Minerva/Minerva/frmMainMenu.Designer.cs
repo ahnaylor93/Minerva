@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lblUname = new System.Windows.Forms.Label();
-            this.btnStock = new System.Windows.Forms.Button();
             this.btnTransact = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -58,21 +57,10 @@
             this.lblUname.Text = "placeholder";
             this.lblUname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnStock
-            // 
-            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnStock.Location = new System.Drawing.Point(300, 141);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(163, 44);
-            this.btnStock.TabIndex = 6;
-            this.btnStock.Text = "Check &Stock";
-            this.btnStock.UseVisualStyleBackColor = true;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
-            // 
             // btnTransact
             // 
             this.btnTransact.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTransact.Location = new System.Drawing.Point(555, 141);
+            this.btnTransact.Location = new System.Drawing.Point(420, 140);
             this.btnTransact.Name = "btnTransact";
             this.btnTransact.Size = new System.Drawing.Size(163, 44);
             this.btnTransact.TabIndex = 7;
@@ -124,7 +112,6 @@
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnTransact);
-            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.lblUname);
             this.Controls.Add(this.label1);
             this.Name = "frmMainMenu";
@@ -139,7 +126,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUname;
-        private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnTransact;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogOut;

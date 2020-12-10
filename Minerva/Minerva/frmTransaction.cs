@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace Minerva
 {
@@ -119,8 +121,8 @@ namespace Minerva
                         else
                         {
                             dv = ProgOps.TransactionTable.DefaultView;
-                            del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USER_ID", searchQuery);
-                            dv.RowFilter = del;
+                            dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USER_ID", searchQuery);
+
                             if (dgvTransactions.Rows.Count == 1)
                             {
                                 dgvTransactions.DataSource = dv;
@@ -137,8 +139,7 @@ namespace Minerva
                         break;
                     case "Username":
                         dv = ProgOps.TransactionTable.DefaultView;
-                        del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USERNAME", searchQuery);
-                        dv.RowFilter = del;
+                        dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USERNAME", searchQuery);
 
                         if (dgvTransactions.Rows.Count == 1)
                         {
@@ -161,8 +162,8 @@ namespace Minerva
                         else
                         {
                             dv = ProgOps.TransactionTable.DefaultView;
-                            del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "ISBN", searchQuery);
-                            dv.RowFilter = del;
+                            dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "ISBN", searchQuery);
+
                             if (dgvTransactions.Rows.Count == 1)
                             {
                                 dgvTransactions.DataSource = dv;
@@ -185,8 +186,8 @@ namespace Minerva
                         else
                         {
                             dv = ProgOps.TransactionTable.DefaultView;
-                            del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "QUANTITY", searchQuery);
-                            dv.RowFilter = del;
+                            dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "QUANTITY", searchQuery);
+
                             if (dgvTransactions.Rows.Count == 1)
                             {
                                 dgvTransactions.DataSource = dv;
@@ -203,8 +204,7 @@ namespace Minerva
                         break;
                     case "Issuer":
                         dv = ProgOps.TransactionTable.DefaultView;
-                        del = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "ISSUED_BY", searchQuery);
-                        dv.RowFilter = del;
+                        dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "ISSUED_BY", searchQuery);
 
                         if (dgvTransactions.Rows.Count == 1)
                         {
@@ -244,7 +244,6 @@ namespace Minerva
                         break;
                     case "Title":
                         dv = ProgOps.TransactionTable.DefaultView;
-                        del = "WHERE TITLE = " + searchQuery;
                         dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "TITLE", searchQuery);
 
                         if (dgvTransactions.Rows.Count == 1)
@@ -285,13 +284,16 @@ namespace Minerva
                     this.frmTransaction_Load(null, null);
                 }
             }
-
-
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+            ds.Tables.Add(ProgOps.TransactionTable);
+            ds.WriteXmlSchema("receipt.xml");
 
+            receipt receipt = new receipt();
+            receipt.SetDataSource(ds);
         }
     }
 }

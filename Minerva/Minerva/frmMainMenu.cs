@@ -22,14 +22,6 @@ namespace Minerva
             lblUname.Text = frmLogin.username;
         }
 
-        private void btnStock_Click(object sender, EventArgs e)
-        {
-            frmBooks book = new frmBooks();
-            this.Hide();
-            book.ShowDialog();
-
-        }
-
         private void btnTransact_Click(object sender, EventArgs e)
         {
             frmTransaction transact = new frmTransaction();
