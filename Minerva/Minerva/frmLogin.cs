@@ -81,18 +81,18 @@ namespace Minerva
                                     {
                                         case "Patron":
                                             frmMainMenu main = new frmMainMenu();
+                                            this.Hide();
                                             main.ShowDialog();
-                                            this.Close();
                                             break;
                                         case "Employee":
                                             frmEmployeeMenu emp = new frmEmployeeMenu();
+                                            this.Hide();
                                             emp.ShowDialog();
-                                            this.Close();
                                             break;
                                         case "Admin":
                                             frmAdminMenu admin = new frmAdminMenu();
+                                            this.Hide();
                                             admin.ShowDialog();
-                                            this.Close();
                                             break;
                                         default:
                                             break;
@@ -121,6 +121,17 @@ namespace Minerva
             //Close the splash window to prevent it from keeping the program alive
             //after it should terminate
             frmSplash.frmActiveSplash.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to quit?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ProgOps.CloseDB();
+                this.Close();
+                Application.Exit();
+            }
         }
     }
 }

@@ -34,7 +34,7 @@
             this.btnStock = new System.Windows.Forms.Button();
             this.lblUname = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -49,6 +49,7 @@
             this.btnLogOut.TabIndex = 16;
             this.btnLogOut.Text = "&Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnExit
             // 
@@ -60,6 +61,7 @@
             this.btnExit.TabIndex = 15;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnTransact
             // 
@@ -71,6 +73,7 @@
             this.btnTransact.TabIndex = 14;
             this.btnTransact.Text = "Check &Transactions";
             this.btnTransact.UseVisualStyleBackColor = true;
+            this.btnTransact.Click += new System.EventHandler(this.btnTransact_Click);
             // 
             // btnStock
             // 
@@ -82,6 +85,7 @@
             this.btnStock.TabIndex = 13;
             this.btnStock.Text = "Check &Stock";
             this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // lblUname
             // 
@@ -104,16 +108,17 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "What would you like to do, ";
             // 
-            // button1
+            // btnUsers
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(515, 307);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 44);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Check &Users";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.Location = new System.Drawing.Point(515, 307);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(163, 44);
+            this.btnUsers.TabIndex = 18;
+            this.btnUsers.Text = "Check &Users";
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnEmployees
             // 
@@ -125,6 +130,7 @@
             this.btnEmployees.TabIndex = 17;
             this.btnEmployees.Text = "Check &Employees";
             this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // lblTitle
             // 
@@ -145,7 +151,7 @@
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(936, 543);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.btnEmployees);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnExit);
@@ -173,7 +179,7 @@
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Label lblUname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Label lblTitle;
     }

@@ -53,7 +53,7 @@ namespace Minerva
             if (dialogResult == DialogResult.Yes)
             {
                 ProgOps.CloseDB();
-                this.Close();
+                Application.Exit();
             }
         }
 
