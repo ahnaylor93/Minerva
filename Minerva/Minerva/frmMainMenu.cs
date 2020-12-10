@@ -25,15 +25,16 @@ namespace Minerva
         private void btnStock_Click(object sender, EventArgs e)
         {
             frmBooks book = new frmBooks();
-            book.ShowDialog();
             this.Hide();
+            book.ShowDialog();
+
         }
 
         private void btnTransact_Click(object sender, EventArgs e)
         {
             frmTransaction transact = new frmTransaction();
-            transact.ShowDialog();
             this.Hide();
+            transact.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace Minerva
             {
                 ProgOps.CloseDB();
                 this.Close();
+                Application.Exit();
             }
         }
 
@@ -53,7 +55,7 @@ namespace Minerva
             {
                 frmLogin login = new frmLogin();
                 login.Show();
-                this.Hide();
+                this.Close();
             }
         }
     }
