@@ -56,6 +56,7 @@ namespace Minerva
             }
             else
             {
+                // standalone for needed static variables 
                 if (dt != null)
                 {
                     foreach (DataRow dr in dt.Rows)
@@ -105,7 +106,15 @@ namespace Minerva
                                     tbxUsername.Text = String.Empty;
                                     tbxPassword.Text = String.Empty;
                                 }
+                                break;
                             }
+                            else
+                            {
+                                MessageBox.Show("Please check your information and try again", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                tbxUsername.Text = String.Empty;
+                                tbxPassword.Text = String.Empty;
+                            }
+                            break;
                         }
 
                     }

@@ -19,8 +19,14 @@ namespace Minerva
             ProgOps.ConnectDB();
         }
 
+        public String searchQuery;
+
         private void frmTransaction_Load(object sender, EventArgs e)
         {
+            // Hide result label
+            lblRes.Visible = false;
+            cbxSearch.SelectedItem = "User ID";
+
             // set main datatable
             ProgOps.TransactionTable = new DataTable();
 
@@ -32,6 +38,7 @@ namespace Minerva
                     btnRemove.Enabled = false;
                     break;
                 case "Employee":
+                    ProgOps._daRes = new SqlDataAdapter(Utils.DB_QUERY + "TRANSACTION_DETAILS", ProgOps._cntDatabase);
                     btnRemove.Enabled = false;
                     break;
                 case "Admin":
@@ -49,6 +56,15 @@ namespace Minerva
 
             // Load DataGridView with DataTable info
             dgvTransactions.DataSource = ProgOps.TransactionTable;
+
+            // Manually change column names
+            dgvTransactions.Columns[0].HeaderText = "Patron ID";
+            dgvTransactions.Columns[1].HeaderText = "Username";
+            dgvTransactions.Columns[2].HeaderText = "Book ISBN";
+            dgvTransactions.Columns[3].HeaderText = "Quantuty checked out";
+            dgvTransactions.Columns[4].HeaderText = "Issued By";
+            dgvTransactions.Columns[5].HeaderText = "Transaction ID";
+            dgvTransactions.Columns[6].HeaderText = "Book Title";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -57,16 +73,19 @@ namespace Minerva
             {
                 case "Patron":
                     frmMainMenu main = new frmMainMenu();
+                    this.Hide();
                     main.ShowDialog();
                     this.Close();
                     break;
                 case "Employee":
                     frmEmployeeMenu emp = new frmEmployeeMenu();
+                    this.Hide();
                     emp.ShowDialog();
                     this.Close();
                     break;
                 case "Admin":
                     frmAdminMenu admin = new frmAdminMenu();
+                    this.Hide();
                     admin.ShowDialog();
                     this.Close();
                     break;
@@ -74,6 +93,114 @@ namespace Minerva
                     break;
             }
 
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            DataView dv;
+            searchQuery = tbxSearch.Text;
+
+            switch (cbxSearch.GetItemText(cbxSearch.SelectedItem))
+            {
+                case "User ID":
+                    if (!int.TryParse(searchQuery, out int num))
+                    {
+                        MessageBox.Show("Please enter a valid search", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        dv = ProgOps.TransactionTable.DefaultView;
+                        dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USER_ID", searchQuery);
+                        if (dv.Table.Rows.Count == 0)
+                        {
+                            dgvTransactions.DataSource = dv;
+                            lblRes.Visible = true;
+                        }
+                        else dgvTransactions.DataSource = dv;
+                    }
+                    break;
+                case "Username":
+                    dv = ProgOps.TransactionTable.DefaultView;
+                    dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USERNAME", searchQuery);
+                    label1.Text = dgvTransactions.Rows.Count.ToString();
+                    if (dgvTransactions.Rows.Count == 0)
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = true;
+                        tbxSearch.Text = String.Empty;
+                    }
+                    else
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = false;
+                        tbxSearch.Text = String.Empty;
+                    }
+                    break;
+                case "ISBN":
+                    dv = ProgOps.TransactionTable.DefaultView;
+                    dv.RowFilter = "ISBN LIKE '" + searchQuery + "%'";
+                    if (dv.Table.Rows.Count > 0)
+                        dgvTransactions.DataSource = dv;
+                    else
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = true;
+                    }
+                    break;
+                case "Quantity":
+                    dv = ProgOps.TransactionTable.DefaultView;
+                    dv.RowFilter = "QUANTITY LIKE '" + searchQuery + "%'";
+                    if (dgvTransactions.Rows.Count > 0)
+                        dgvTransactions.DataSource = dv;
+                    else
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = true;
+                    }
+                    break;
+                case "Issuer":
+                    dv = ProgOps.TransactionTable.DefaultView;
+                    dv.RowFilter = "ISSUED_BY LIKE '" + searchQuery + "%'";
+                    if (dv.Table.Rows.Count > 0)
+                        dgvTransactions.DataSource = dv;
+                    else
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = true;
+                    }
+                    break;
+                case "Trans. ID":
+                    dv = ProgOps.TransactionTable.DefaultView;
+                    dv.RowFilter = "TRANSACTION_ID LIKE '" + searchQuery + "%'";
+                    if (dv.Table.Rows.Count > 0)
+                        dgvTransactions.DataSource = dv;
+                    else
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = true;
+                    }
+                    break;
+                case "Title":
+                    dv = ProgOps.TransactionTable.DefaultView;
+                    dv.RowFilter = "TITLE LIKE '" + searchQuery + "%'";
+                    if (dv.Table.Rows.Count > 0)
+                        dgvTransactions.DataSource = dv;
+                    else
+                    {
+                        dgvTransactions.DataSource = dv;
+                        lblRes.Visible = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            dgvTransactions.DataSource = null;
+            dgvTransactions.DataSource = ProgOps.TransactionTable;
+            dgvTransactions.Refresh();
         }
     }
 }
