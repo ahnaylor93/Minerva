@@ -121,9 +121,9 @@
             // lbxRes
             // 
             this.lbxRes.FormattingEnabled = true;
-            this.lbxRes.Location = new System.Drawing.Point(762, 133);
+            this.lbxRes.Location = new System.Drawing.Point(717, 133);
             this.lbxRes.Name = "lbxRes";
-            this.lbxRes.Size = new System.Drawing.Size(237, 329);
+            this.lbxRes.Size = new System.Drawing.Size(282, 329);
             this.lbxRes.TabIndex = 19;
             this.lbxRes.DoubleClick += new System.EventHandler(this.lbxRes_DoubleClick);
             // 
@@ -141,9 +141,9 @@
             // lbxBookRes
             // 
             this.lbxBookRes.FormattingEnabled = true;
-            this.lbxBookRes.Location = new System.Drawing.Point(297, 133);
+            this.lbxBookRes.Location = new System.Drawing.Point(285, 131);
             this.lbxBookRes.Name = "lbxBookRes";
-            this.lbxBookRes.Size = new System.Drawing.Size(288, 342);
+            this.lbxBookRes.Size = new System.Drawing.Size(240, 329);
             this.lbxBookRes.TabIndex = 21;
             // 
             // btnGoToCart

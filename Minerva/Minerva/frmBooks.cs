@@ -70,7 +70,17 @@ namespace Minerva
 
         private void btnCart_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Book added successfully to the cart!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var selected = lbxRes.SelectedItem as models.DBBookModel;
 
+            int user_id = 0;
+            String title = selected.title;
+            String username = String.Empty;
+            String ISBN = selected.ISBN;
+            int quantity = 1;
+            int issued_by = frmLogin.user_id;
+
+            CartTable.Rows.Add(user_id, username, ISBN, quantity, title);
         }
 
         private void btnBack_Click(object sender, EventArgs e)

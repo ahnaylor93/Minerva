@@ -54,7 +54,25 @@ namespace Minerva
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Checkout Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            frmBooks.CartTable.Clear();
+            this.frmCart_Load(null, null);
+        }
 
+        private void lbxUsers_DoubleClick(object sender, EventArgs e)
+        {
+            String username = lbxUsers.SelectedItem.ToString();
+            DataView dv = new DataView();
+            dv = ProgOps.UserTable.DefaultView;
+            dv.RowFilter = String.Format("CONVERT({0}, System.String) LIKE '%{1}%'", "USERNAME", username);
+            int user_id = Convert.ToInt32(dv.Table.Columns[0].ToString());
+
+            foreach (DataRow dr in frmBooks.CartTable.Rows)
+            {
+                dr.BeginEdit();
+                dr["user_id"] = user_id;
+                dr["username"] = username;
+            }
         }
     }
 }

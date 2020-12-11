@@ -87,6 +87,7 @@
             this.lbxUsers.Name = "lbxUsers";
             this.lbxUsers.Size = new System.Drawing.Size(242, 212);
             this.lbxUsers.TabIndex = 21;
+            this.lbxUsers.DoubleClick += new System.EventHandler(this.lbxUsers_DoubleClick);
             // 
             // lblImgRes
             // 
