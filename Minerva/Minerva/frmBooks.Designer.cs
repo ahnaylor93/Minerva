@@ -121,7 +121,7 @@
             // lbxRes
             // 
             this.lbxRes.FormattingEnabled = true;
-            this.lbxRes.Location = new System.Drawing.Point(288, 133);
+            this.lbxRes.Location = new System.Drawing.Point(762, 133);
             this.lbxRes.Name = "lbxRes";
             this.lbxRes.Size = new System.Drawing.Size(237, 329);
             this.lbxRes.TabIndex = 19;
@@ -141,7 +141,7 @@
             // lbxBookRes
             // 
             this.lbxBookRes.FormattingEnabled = true;
-            this.lbxBookRes.Location = new System.Drawing.Point(711, 134);
+            this.lbxBookRes.Location = new System.Drawing.Point(297, 133);
             this.lbxBookRes.Name = "lbxBookRes";
             this.lbxBookRes.Size = new System.Drawing.Size(288, 342);
             this.lbxBookRes.TabIndex = 21;
