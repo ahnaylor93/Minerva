@@ -30,110 +30,153 @@
         {
             this.pbxCover = new System.Windows.Forms.PictureBox();
             this.tbxSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubtitle = new System.Windows.Forms.Label();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnCart = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lbxRes = new System.Windows.Forms.ListBox();
+            this.lblImgRes = new System.Windows.Forms.Label();
+            this.lbxBookRes = new System.Windows.Forms.ListBox();
+            this.btnGoToCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCover)).BeginInit();
             this.SuspendLayout();
             // 
             // pbxCover
             // 
-            this.pbxCover.Location = new System.Drawing.Point(92, 71);
+            this.pbxCover.Location = new System.Drawing.Point(34, 133);
+            this.pbxCover.Margin = new System.Windows.Forms.Padding(1);
             this.pbxCover.Name = "pbxCover";
-            this.pbxCover.Size = new System.Drawing.Size(323, 427);
+            this.pbxCover.Size = new System.Drawing.Size(237, 327);
+            this.pbxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxCover.TabIndex = 0;
             this.pbxCover.TabStop = false;
             // 
             // tbxSearch
             // 
-            this.tbxSearch.Location = new System.Drawing.Point(35, 12);
+            this.tbxSearch.Location = new System.Drawing.Point(307, 21);
+            this.tbxSearch.Margin = new System.Windows.Forms.Padding(1);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(283, 39);
+            this.tbxSearch.Size = new System.Drawing.Size(306, 20);
             this.tbxSearch.TabIndex = 0;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearch.Location = new System.Drawing.Point(324, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 39);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "&Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // tbxDescription
-            // 
-            this.tbxDescription.Location = new System.Drawing.Point(552, 99);
-            this.tbxDescription.Multiline = true;
-            this.tbxDescription.Name = "tbxDescription";
-            this.tbxDescription.ReadOnly = true;
-            this.tbxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxDescription.Size = new System.Drawing.Size(419, 399);
-            this.tbxDescription.TabIndex = 4;
             // 
             // lblTitle
             // 
-            this.lblTitle.Location = new System.Drawing.Point(546, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(34, 62);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(425, 51);
+            this.lblTitle.Size = new System.Drawing.Size(491, 21);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Book Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSubtitle
             // 
-            this.lblSubtitle.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblSubtitle.Location = new System.Drawing.Point(548, 71);
+            this.lblSubtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtitle.Location = new System.Drawing.Point(37, 83);
+            this.lblSubtitle.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(423, 25);
+            this.lblSubtitle.Size = new System.Drawing.Size(488, 22);
             this.lblSubtitle.TabIndex = 3;
-            this.lblSubtitle.Text = "Subtitle";
+            this.lblSubtitle.Text = "Author";
             this.lblSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAddToCart
+            // btnBack
             // 
-            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddToCart.Location = new System.Drawing.Point(159, 545);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(185, 39);
-            this.btnAddToCart.TabIndex = 5;
-            this.btnAddToCart.Text = "&Add to Cart";
-            this.btnAddToCart.UseVisualStyleBackColor = true;
-            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(836, 513);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(163, 44);
+            this.btnBack.TabIndex = 16;
+            this.btnBack.Text = "&Go Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnExit
+            // btnCart
             // 
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnExit.Location = new System.Drawing.Point(814, 538);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(157, 46);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCart.Location = new System.Drawing.Point(34, 513);
+            this.btnCart.Name = "btnCart";
+            this.btnCart.Size = new System.Drawing.Size(163, 44);
+            this.btnCart.TabIndex = 17;
+            this.btnCart.Text = "Add to &Cart";
+            this.btnCart.UseVisualStyleBackColor = true;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(657, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(78, 20);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "&Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // lbxRes
+            // 
+            this.lbxRes.FormattingEnabled = true;
+            this.lbxRes.Location = new System.Drawing.Point(288, 133);
+            this.lbxRes.Name = "lbxRes";
+            this.lbxRes.Size = new System.Drawing.Size(237, 329);
+            this.lbxRes.TabIndex = 19;
+            this.lbxRes.DoubleClick += new System.EventHandler(this.lbxRes_DoubleClick);
+            // 
+            // lblImgRes
+            // 
+            this.lblImgRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImgRes.Location = new System.Drawing.Point(34, 281);
+            this.lblImgRes.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblImgRes.Name = "lblImgRes";
+            this.lblImgRes.Size = new System.Drawing.Size(237, 24);
+            this.lblImgRes.TabIndex = 20;
+            this.lblImgRes.Text = "*** Image Not Available ***";
+            this.lblImgRes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbxBookRes
+            // 
+            this.lbxBookRes.FormattingEnabled = true;
+            this.lbxBookRes.Location = new System.Drawing.Point(711, 134);
+            this.lbxBookRes.Name = "lbxBookRes";
+            this.lbxBookRes.Size = new System.Drawing.Size(288, 342);
+            this.lbxBookRes.TabIndex = 21;
+            // 
+            // btnGoToCart
+            // 
+            this.btnGoToCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGoToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToCart.Location = new System.Drawing.Point(203, 513);
+            this.btnGoToCart.Name = "btnGoToCart";
+            this.btnGoToCart.Size = new System.Drawing.Size(163, 44);
+            this.btnGoToCart.TabIndex = 22;
+            this.btnGoToCart.Text = "Go to C&art";
+            this.btnGoToCart.UseVisualStyleBackColor = true;
+            this.btnGoToCart.Click += new System.EventHandler(this.btnGoToCart_Click);
             // 
             // frmBooks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
-            this.ClientSize = new System.Drawing.Size(986, 601);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnAddToCart);
+            this.ClientSize = new System.Drawing.Size(1011, 569);
+            this.Controls.Add(this.btnGoToCart);
+            this.Controls.Add(this.lbxBookRes);
+            this.Controls.Add(this.lblImgRes);
+            this.Controls.Add(this.lbxRes);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnCart);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblSubtitle);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.tbxDescription);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.pbxCover);
-            this.Font = new System.Drawing.Font("UD Digi Kyokasho NK-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "frmBooks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minerva - Books";
@@ -148,11 +191,14 @@
 
         private System.Windows.Forms.PictureBox pbxCover;
         private System.Windows.Forms.TextBox tbxSearch;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSubtitle;
-        private System.Windows.Forms.Button btnAddToCart;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnCart;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ListBox lbxRes;
+        private System.Windows.Forms.Label lblImgRes;
+        private System.Windows.Forms.ListBox lbxBookRes;
+        private System.Windows.Forms.Button btnGoToCart;
     }
 }

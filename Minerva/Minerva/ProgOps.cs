@@ -22,11 +22,13 @@ namespace Minerva
         #region Initialize
         // TransactionList for Receipts and Admin filtering
 
-        private static SqlConnection _cntDatabase;
+        public static SqlConnection _cntDatabase;
+        public static SqlDataAdapter _daRes;
 
-        public static DataTable UserTable = new DataTable();
-        public static DataTable BookTable = new DataTable();
-        public static DataTable TransactionTable = new DataTable();
+        public static DataTable UserTable;
+        public static DataTable BookTable;
+        public static DataTable TransactionTable;
+
         public static ArrayList TransactionListByQuery;
         public static ArrayList UserListByQuery;
 
@@ -47,7 +49,8 @@ namespace Minerva
             try
             {
                 if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
-                MessageBox.Show("Connection Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                // For test only
+                // MessageBox.Show("Connection Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
             catch (Exception ex)
@@ -57,82 +60,10 @@ namespace Minerva
             }
         }
 
-        public void CloseDB()
+        public static void CloseDB()
         {
             _cntDatabase.Close();
             _cntDatabase.Dispose();
-        }
-
-        #endregion
-
-
-        #region Load Methods
-
-        public static String query;
-
-        //Loads DataTables with initial and set data
-        public static DataTable _getAllBooks()
-        {
-            // Used to store book information temporarily until a save is necessarily. To be cleared be wiped on each save
-            query = Utils.DB_QUERY + "BOOK_DETAILS";
-
-            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
-            using (SqlCommand cmd = new SqlCommand(query, _cntDatabase))
-            {
-                try
-                {
-                    if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
-                    BookTable.Load(cmd.ExecuteReader());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                return BookTable;
-            }
-        }
-
-        public static DataTable _getAllUsers()
-        {
-            // UsersForm will require => DataGridView UserView
-            query = Utils.DB_QUERY + "USER_DETAILS";
-
-            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
-            using (SqlCommand cmd = new SqlCommand(query, _cntDatabase))
-            {
-                try
-                {
-                    if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
-                    UserTable.Load(cmd.ExecuteReader());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                return UserTable;
-            }
-        }
-        public static DataTable _getAllTransactions()
-        {
-            // TransactionsForm will require => DataGridView TransactionView
-            query = Utils.DB_QUERY + "TRANSACTION_DETAILS";
-
-            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
-            using (SqlCommand cmd = new SqlCommand(query, _cntDatabase))
-            {
-                try
-                {
-                    if (_cntDatabase.State == ConnectionState.Closed) _cntDatabase.Open();
-                    UserTable.Load(cmd.ExecuteReader());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                return TransactionTable;
-            }
         }
 
         #endregion
@@ -172,10 +103,9 @@ namespace Minerva
             return BookObject;
         }
 
-        public static models.UserModel _getUserFromTable(string searchQuery)
+        public static void _getUserFromTable(string searchQuery)
         {
-            UserObject = new models.UserModel();
-            return UserObject;
+
         }
 
         public static ArrayList _getTransactionFromTable(string id)
@@ -210,12 +140,146 @@ namespace Minerva
         #endregion
 
 
+        #region Delete Methods
+        public static bool _deleteTransactionFromDB(int ID)
+        {
+            String del;
+            bool flag = false;
+            try
+            {
+                using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+                {
+                    del = "DELETE FROM " + Utils.DB + ".TRANSACTION_DETAILS ";
+                    del += "WHERE TRANSACTION_ID = " + ID;
+
+                    using (SqlCommand cmd = new SqlCommand(del, _cntDatabase))
+                    {
+                        _cntDatabase.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    flag = true;
+                    CloseDB();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return flag;
+        }
+
+        public static bool _deleteUserFromDB(int ID)
+        {
+            String del;
+            bool flag = false;
+
+            if (ID == frmLogin.user_id)
+            {
+                MessageBox.Show("You may not delete your own account", "There was a problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return flag;
+            }
+            else
+            {
+                try
+                {
+                    using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+                    {
+                        del = "DELETE FROM " + Utils.DB + ".USER_DETAILS ";
+                        del += "WHERE USER_ID = " + ID;
+
+                        using (SqlCommand cmd = new SqlCommand(del, _cntDatabase))
+                        {
+                            _cntDatabase.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                        flag = true;
+                        CloseDB();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                return flag;
+            }
+        }
+
+        #endregion
+
+
         #region Save Methods
         // Maps Object data to DB; Can be used to update
         // Runs on ```Are You Sure```
         public static void _saveBook(models.DBBookModel bookObj) { }
-        public static void _saveUser(models.UserModel userObj) { }
-        public static void _saveTransaction(models.TransactionModel transactionObj) { }
+
+        public static void _saveUser(int user_id, String
+            firstname, String lastname, String username, String password, String access)
+        {
+            String upd;
+
+            user_id = Utils._IDGenerator();
+
+            using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+            {
+                _cntDatabase.Open();
+                upd = "INSERT INTO " + Utils.DB + ".USER_DETAILS ";
+                upd += "VALUES(@USER_ID, @USER_FIRSTNAME, @USER_LASTNAME, @USERNAME, @PASSWORD, @DESIGNATION)";
+                using (var cmd = new SqlCommand(upd, _cntDatabase))
+                {
+                    cmd.Parameters.AddWithValue("@USER_ID", user_id);
+                    cmd.Parameters.AddWithValue("@USER_FIRSTNAME", firstname);
+                    cmd.Parameters.AddWithValue("@USER_LASTNAME", lastname);
+                    cmd.Parameters.AddWithValue("@USERNAME", username);
+                    cmd.Parameters.AddWithValue("@PASSWORD", password);
+                    cmd.Parameters.AddWithValue("@DESIGNATION", access);
+
+                    cmd.ExecuteNonQuery();
+                }
+                CloseDB();
+            }
+        }
+
+        public static bool _updateUser(int user_id, String
+            firstname, String lastname, String username, String password, String access)
+        {
+            String upd;
+            bool flag = false;
+            try
+            {
+                using (_cntDatabase = new SqlConnection(Utils.CONNECT_STRING))
+                {
+                    _cntDatabase.Open();
+                    upd = "UPDATE " + Utils.DB + ".USER_DETAILS ";
+                    upd += "SET USER_FIRSTNAME = @USER_FIRSTNAME, USER_LASTNAME = @USER_LASTNAME, " +
+                        "USERNAME = @USERNAME, PASSWORD = @PASSWORD, DESIGNATION = @DESIGNATION ";
+                    upd += "WHERE USER_ID = @USER_ID";
+                    using (var cmd = new SqlCommand(upd, _cntDatabase))
+                    {
+                        cmd.Parameters.AddWithValue("@USER_ID", user_id);
+                        cmd.Parameters.AddWithValue("@USER_FIRSTNAME", firstname);
+                        cmd.Parameters.AddWithValue("@USER_LASTNAME", lastname);
+                        cmd.Parameters.AddWithValue("@USERNAME", username);
+                        cmd.Parameters.AddWithValue("@PASSWORD", password);
+                        cmd.Parameters.AddWithValue("@DESIGNATION", access);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    flag = true;
+                    CloseDB();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return flag;
+        }
+
+        public static void _saveTransaction(models.TransactionModel transactionObj)
+        {
+
+        }
+
         #endregion
     }
 }

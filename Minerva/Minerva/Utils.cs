@@ -23,6 +23,7 @@ namespace Minerva
 
         // Connects to DB
         public static String DB_QUERY => DotNetEnv.Env.GetString("DB_QUERY");
+        public static String DB => DotNetEnv.Env.GetString("DB");
         public static String CONNECT_STRING => DotNetEnv.Env.GetString("CONNECT_STRING");
 
         public const String QUERY_STRING = @"http://openlibrary.org/search.json?q=";
@@ -53,11 +54,13 @@ namespace Minerva
         {
             var random = new Random();
             String id = String.Empty;
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 7; i++)
                 id = String.Concat(id, random.Next(10).ToString());
 
             return Int32.Parse(id);
         }
+
+        // Report Printing
 
         #endregion
     }
