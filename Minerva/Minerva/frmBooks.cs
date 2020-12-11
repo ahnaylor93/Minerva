@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -22,6 +23,7 @@ namespace Minerva
 
         public String searchQuery;
         List<models.APIBookModel> bookSearch;
+        public static DataTable CartTable;
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
@@ -129,6 +131,21 @@ namespace Minerva
         private void frmBooks_Load(object sender, EventArgs e)
         {
             lblImgRes.Visible = true;
+            CartTable = new DataTable();
+
+            CartTable.Columns.Add("User ID", typeof(int));
+            CartTable.Columns.Add("Username", typeof(String));
+            CartTable.Columns.Add("ISBN", typeof(String));
+            CartTable.Columns.Add("Quantity", typeof(int));
+            CartTable.Columns.Add("Book Title", typeof(String));
+
+        }
+
+        private void btnGoToCart_Click(object sender, EventArgs e)
+        {
+            frmCart cart = new frmCart();
+            this.Hide();
+            cart.ShowDialog();
         }
     }
 }

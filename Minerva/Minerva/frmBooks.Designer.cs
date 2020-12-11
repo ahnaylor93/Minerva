@@ -38,6 +38,7 @@
             this.lbxRes = new System.Windows.Forms.ListBox();
             this.lblImgRes = new System.Windows.Forms.Label();
             this.lbxBookRes = new System.Windows.Forms.ListBox();
+            this.btnGoToCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCover)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,9 +121,9 @@
             // lbxRes
             // 
             this.lbxRes.FormattingEnabled = true;
-            this.lbxRes.Location = new System.Drawing.Point(736, 133);
+            this.lbxRes.Location = new System.Drawing.Point(288, 133);
             this.lbxRes.Name = "lbxRes";
-            this.lbxRes.Size = new System.Drawing.Size(217, 329);
+            this.lbxRes.Size = new System.Drawing.Size(237, 329);
             this.lbxRes.TabIndex = 19;
             this.lbxRes.DoubleClick += new System.EventHandler(this.lbxRes_DoubleClick);
             // 
@@ -140,10 +141,22 @@
             // lbxBookRes
             // 
             this.lbxBookRes.FormattingEnabled = true;
-            this.lbxBookRes.Location = new System.Drawing.Point(288, 133);
+            this.lbxBookRes.Location = new System.Drawing.Point(711, 134);
             this.lbxBookRes.Name = "lbxBookRes";
-            this.lbxBookRes.Size = new System.Drawing.Size(237, 329);
+            this.lbxBookRes.Size = new System.Drawing.Size(288, 342);
             this.lbxBookRes.TabIndex = 21;
+            // 
+            // btnGoToCart
+            // 
+            this.btnGoToCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGoToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToCart.Location = new System.Drawing.Point(203, 513);
+            this.btnGoToCart.Name = "btnGoToCart";
+            this.btnGoToCart.Size = new System.Drawing.Size(163, 44);
+            this.btnGoToCart.TabIndex = 22;
+            this.btnGoToCart.Text = "Go to C&art";
+            this.btnGoToCart.UseVisualStyleBackColor = true;
+            this.btnGoToCart.Click += new System.EventHandler(this.btnGoToCart_Click);
             // 
             // frmBooks
             // 
@@ -151,6 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1011, 569);
+            this.Controls.Add(this.btnGoToCart);
             this.Controls.Add(this.lbxBookRes);
             this.Controls.Add(this.lblImgRes);
             this.Controls.Add(this.lbxRes);
@@ -185,5 +199,6 @@
         private System.Windows.Forms.ListBox lbxRes;
         private System.Windows.Forms.Label lblImgRes;
         private System.Windows.Forms.ListBox lbxBookRes;
+        private System.Windows.Forms.Button btnGoToCart;
     }
 }

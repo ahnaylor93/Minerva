@@ -154,3 +154,4 @@ C:\Users\hwood\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Mine
 C:\Users\hwood\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\hwood\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\stdole.dll
 C:\Users\hwood\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Documents\TSTC\Comp Software Proj PlanDesig (INEW-2330-10X1)\Minerva\Minerva\Minerva\obj\Debug\Minerva.frmCart.resources
