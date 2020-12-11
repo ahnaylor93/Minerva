@@ -56,11 +56,12 @@ namespace Minerva
 
                         lbxRes.DisplayMember = lbxItem.subtitle == null ? "lbxItem.title" : "lbxItem.title + '-' + lbxItem.subtitle";
                         lbxRes.ValueMember = "ISBN";
+
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No results available; Please try again", "No results", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("No results available. Please try again", "No results", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -94,6 +95,16 @@ namespace Minerva
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void lbxRes_DoubleClick(object sender, EventArgs e)
+        {
+            var selected = lbxRes.SelectedItem as models.DBBookModel;
+
+            if (selected != null)
+            {
+                lblTitle.Text = selected.title;
             }
         }
     }

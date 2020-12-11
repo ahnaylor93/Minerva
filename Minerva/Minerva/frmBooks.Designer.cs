@@ -70,10 +70,10 @@
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(71, 62);
+            this.lblTitle.Location = new System.Drawing.Point(34, 62);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(159, 21);
+            this.lblTitle.Size = new System.Drawing.Size(491, 21);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Book Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,10 +81,10 @@
             // lblSubtitle
             // 
             this.lblSubtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtitle.Location = new System.Drawing.Point(71, 83);
+            this.lblSubtitle.Location = new System.Drawing.Point(37, 83);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(159, 22);
+            this.lblSubtitle.Size = new System.Drawing.Size(488, 22);
             this.lblSubtitle.TabIndex = 3;
             this.lblSubtitle.Text = "Subtitle";
             this.lblSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -132,6 +132,7 @@
             this.lbxRes.Name = "lbxRes";
             this.lbxRes.Size = new System.Drawing.Size(217, 329);
             this.lbxRes.TabIndex = 19;
+            this.lbxRes.DoubleClick += new System.EventHandler(this.lbxRes_DoubleClick);
             // 
             // frmBooks
             // 
