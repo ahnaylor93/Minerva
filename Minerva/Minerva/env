@@ -1,0 +1,3 @@
+﻿CONNECT_STRING="Data Source=cstnt.tstc.edu;Initial Catalog=inew2330fa20;User Id=group2bfa202330;password=1829375"
+DB_QUERY="SELECT * FROM GROUP2BFA202330."
+DB="GROUP2BFA202330"
