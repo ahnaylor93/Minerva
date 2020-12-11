@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,14 +50,13 @@ namespace Minerva
                             actual_quantity = 5,
                             checked_in = 5,
                             checked_out = 0,
-                            image_url = lbxItem.isbn == null ? "Image not available" : Utils.IMAGE_QUERY + lbxItem.isbn[0],
+                            image_url = lbxItem.isbn == null ? "Image not available" : Utils.IMAGE_QUERY + lbxItem.isbn[0] + Utils.IMG_TAG,
                             author = lbxItem.author_name == null ? "not listed" : lbxItem.author_name[0],
                             subtitle = lbxItem.subtitle == null ? String.Empty : lbxItem.subtitle
                         });
 
                         lbxRes.DisplayMember = lbxItem.subtitle == null ? "lbxItem.title" : "lbxItem.title + '-' + lbxItem.subtitle";
                         lbxRes.ValueMember = "ISBN";
-
                     }
                 }
                 else
@@ -100,12 +100,35 @@ namespace Minerva
 
         private void lbxRes_DoubleClick(object sender, EventArgs e)
         {
+            lbxBookRes.Items.Clear();
+
             var selected = lbxRes.SelectedItem as models.DBBookModel;
 
             if (selected != null)
             {
                 lblTitle.Text = selected.title;
+                lblSubtitle.Text = selected.author;
+
+                if (selected.image_url != "Image not available")
+                {
+                    pbxCover.LoadAsync(selected.image_url);
+                    lblImgRes.Visible = false;
+                }
+                else
+                {
+                    lblImgRes.Visible = true;
+                }
             }
+
+            lbxBookRes.Items.Add(String.Format("ISBN: {0}", selected.ISBN));
+            lbxBookRes.Items.Add(String.Format("Title: {0}", selected.title));
+            lbxBookRes.Items.Add(String.Format("Subtitle: {0}", selected.subtitle));
+            lbxBookRes.Items.Add(String.Format("Publish Date: {0}", selected.publish_date));
+        }
+
+        private void frmBooks_Load(object sender, EventArgs e)
+        {
+            lblImgRes.Visible = true;
         }
     }
 }

@@ -30,13 +30,14 @@
         {
             this.pbxCover = new System.Windows.Forms.PictureBox();
             this.tbxSearch = new System.Windows.Forms.TextBox();
-            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCart = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lbxRes = new System.Windows.Forms.ListBox();
+            this.lblImgRes = new System.Windows.Forms.Label();
+            this.lbxBookRes = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCover)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.pbxCover.Margin = new System.Windows.Forms.Padding(1);
             this.pbxCover.Name = "pbxCover";
             this.pbxCover.Size = new System.Drawing.Size(237, 327);
+            this.pbxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxCover.TabIndex = 0;
             this.pbxCover.TabStop = false;
             // 
@@ -56,16 +58,6 @@
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(306, 20);
             this.tbxSearch.TabIndex = 0;
-            // 
-            // tbxDescription
-            // 
-            this.tbxDescription.Location = new System.Drawing.Point(296, 133);
-            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1);
-            this.tbxDescription.Multiline = true;
-            this.tbxDescription.Name = "tbxDescription";
-            this.tbxDescription.ReadOnly = true;
-            this.tbxDescription.Size = new System.Drawing.Size(229, 327);
-            this.tbxDescription.TabIndex = 4;
             // 
             // lblTitle
             // 
@@ -86,7 +78,7 @@
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(488, 22);
             this.lblSubtitle.TabIndex = 3;
-            this.lblSubtitle.Text = "Subtitle";
+            this.lblSubtitle.Text = "Author";
             this.lblSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBack
@@ -134,19 +126,39 @@
             this.lbxRes.TabIndex = 19;
             this.lbxRes.DoubleClick += new System.EventHandler(this.lbxRes_DoubleClick);
             // 
+            // lblImgRes
+            // 
+            this.lblImgRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImgRes.Location = new System.Drawing.Point(34, 281);
+            this.lblImgRes.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblImgRes.Name = "lblImgRes";
+            this.lblImgRes.Size = new System.Drawing.Size(237, 24);
+            this.lblImgRes.TabIndex = 20;
+            this.lblImgRes.Text = "*** Image Not Available ***";
+            this.lblImgRes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbxBookRes
+            // 
+            this.lbxBookRes.FormattingEnabled = true;
+            this.lbxBookRes.Location = new System.Drawing.Point(288, 133);
+            this.lbxBookRes.Name = "lbxBookRes";
+            this.lbxBookRes.Size = new System.Drawing.Size(237, 329);
+            this.lbxBookRes.TabIndex = 21;
+            // 
             // frmBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1011, 569);
+            this.Controls.Add(this.lbxBookRes);
+            this.Controls.Add(this.lblImgRes);
             this.Controls.Add(this.lbxRes);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCart);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblSubtitle);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.tbxDescription);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.pbxCover);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,6 +166,7 @@
             this.Name = "frmBooks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minerva - Books";
+            this.Load += new System.EventHandler(this.frmBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,12 +177,13 @@
 
         private System.Windows.Forms.PictureBox pbxCover;
         private System.Windows.Forms.TextBox tbxSearch;
-        private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSubtitle;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnCart;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ListBox lbxRes;
+        private System.Windows.Forms.Label lblImgRes;
+        private System.Windows.Forms.ListBox lbxBookRes;
     }
 }
