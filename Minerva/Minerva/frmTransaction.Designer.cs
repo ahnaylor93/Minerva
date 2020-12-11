@@ -38,7 +38,6 @@
             this.lblRes = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.receipt1 = new Minerva.receipt();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +188,5 @@
         private System.Windows.Forms.Label lblRes;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnPrint;
-        private receipt receipt1;
     }
 }

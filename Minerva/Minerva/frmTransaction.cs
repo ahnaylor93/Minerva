@@ -291,9 +291,6 @@ namespace Minerva
             DataSet ds = new DataSet();
             ds.Tables.Add(ProgOps.TransactionTable);
             ds.WriteXmlSchema("receipt.xml");
-
-            receipt receipt = new receipt();
-            receipt.SetDataSource(ds);
         }
     }
 }

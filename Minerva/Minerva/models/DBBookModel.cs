@@ -7,7 +7,7 @@ namespace Minerva.models
     public class DBBookModel
     {
         // Model Book from DB Object
-        public int ISBN { get; set; }
+        public String ISBN { get; set; }
         public String title { get; set; }
         public String subtitle { get; set; }
         public String author { get; set; }

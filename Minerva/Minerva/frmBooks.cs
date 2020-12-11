@@ -20,11 +20,11 @@ namespace Minerva
         }
 
         public String searchQuery;
-
+        List<models.APIBookModel> bookSearch;
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            tbxSearch.Text = searchQuery;
+            lbxRes.Items.Clear();
 
             if (searchQuery == String.Empty)
             {
@@ -32,9 +32,36 @@ namespace Minerva
             }
             else
             {
-                var bookSearch = await ProgOps.GetBook(searchQuery);
+                bookSearch = await ProgOps.GetBook(tbxSearch.Text);
 
-                lblTitle.Text = bookSearch[0].title != null ? bookSearch[0].title : "No results available";
+                if (bookSearch != null)
+                {
+                    lblTitle.Text = bookSearch[0].title != null ? bookSearch[0].title : "No results available";
+                    lblSubtitle.Text = bookSearch[0].subtitle != null ? bookSearch[0].subtitle : String.Empty;
+
+                    foreach (var lbxItem in bookSearch)
+                    {
+                        lbxRes.Items.Add(new models.DBBookModel
+                        {
+                            ISBN = lbxItem.isbn == null ? "not listed" : lbxItem.isbn[0],
+                            title = lbxItem.title == null ? "not listed" : lbxItem.title,
+                            publish_date = lbxItem.publish_date == null ? "not listed" : lbxItem.publish_date[0],
+                            actual_quantity = 5,
+                            checked_in = 5,
+                            checked_out = 0,
+                            image_url = lbxItem.isbn == null ? "Image not available" : Utils.IMAGE_QUERY + lbxItem.isbn[0],
+                            author = lbxItem.author_name == null ? "not listed" : lbxItem.author_name[0],
+                            subtitle = lbxItem.subtitle == null ? String.Empty : lbxItem.subtitle
+                        });
+
+                        lbxRes.DisplayMember = lbxItem.subtitle == null ? "lbxItem.title" : "lbxItem.title + '-' + lbxItem.subtitle";
+                        lbxRes.ValueMember = "ISBN";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No results available; Please try again", "No results", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
             }
         }
 
@@ -68,11 +95,6 @@ namespace Minerva
                 default:
                     break;
             }
-        }
-
-        private void tbxSearch_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

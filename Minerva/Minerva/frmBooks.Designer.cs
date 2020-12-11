@@ -56,7 +56,6 @@
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(306, 20);
             this.tbxSearch.TabIndex = 0;
-            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             // 
             // tbxDescription
             // 
